@@ -283,7 +283,7 @@ html{scroll-behavior:smooth}
   <a href="#s2"><b>2</b>Buat repo &amp; GitHub</a><span class="sep">&rarr;</span>
   <a href="#s3"><b>3</b>Install Git &amp; konfigurasi</a><span class="sep">&rarr;</span>
   <a href="#s4"><b>4</b>Autentikasi GitHub</a><span class="sep">&rarr;</span>
-  <a href="#s5"><b>5</b>Clone &amp; push</a><span class="sep">&rarr;</span>
+  <a href="#s5"><b>5</b>Buka repo &amp; AI</a><span class="sep">&rarr;</span>
   <a href="#s6"><b>6</b>Troubleshooting</a>
 </div>
 
@@ -477,35 +477,26 @@ git config --global --get credential.helper</pre></div>
 </section>
 
 <!-- 5 -->
+<!-- 5 -->
 <section id="s5">
-  <div class="sh"><span class="num">5</span><h2>Clone, commit, dan push</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 20 menit</span></div>
-  <p class="intro">Sekarang saatnya membuat repo di laptop dan menguji push ke GitHub dengan akunmu.</p>
+  <div class="sh"><span class="num">5</span><h2>Buka repo dan minta AI siap pakai Git</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 10 menit</span></div>
+  <p class="intro">Dengan Git + credential helper terautentikasi (bab 4), OpenCode/Freebuff bisa mengurus git untukmu. Kamu tidak perlu ketik perintah git yang membingungkan â€” cukup beri AI satu prompt.</p>
 
   <div class="step" data-id="5.1">
-    <h3><span class="sn">5.1</span>Clone repo</h3>
-    <div class="code cmd"><pre>git clone https://github.com/<span class="ph" data-k="user">[username]</span>/<span class="ph" data-k="folder">[nama-folder]</span>.git</pre></div>
-    <div class="code cmd"><pre>cd <span class="ph" data-k="folder">[nama-folder]</span>
-bun install</pre></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Folder proyek muncul, <code class="i">bun install</code> selesai tanpa tulisan merah, dan <code class="i">git remote -v</code> menunjuk ke repo sendiri.</p></div>
+    <h3><span class="sn">5.1</span>Beri AI daftar isi repo</h3>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Clone repo https://github.com/<span class="ph" data-k="user">[username]</span>/<span class="ph" data-k="folder">[nama-folder]</span>.git, lalu buat branch baru di dalamnya.</pre></div></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>AI selesai menclone repo, dan di browser kamu bisa melihat branch baru di repo GitHub kamu.</p></div>
   </div>
 
   <div class="step" data-id="5.2">
-    <h3><span class="sn">5.2</span>Buat branch kerja</h3>
-    <div class="code cmd"><pre>git checkout -b revamp-<span class="ph" data-k="user">[username]</span></pre></div>
-    <div class="row"><span class="lab">Kenapa</span><p>Semua perubahanmu masuk ke branch ini, bukan ke <code class="i">main</code>. Nanti branch ini yang jadi Pull Request.</p></div>
+    <h3><span class="sn">5.2</span>Minta AI commit &amp; push</h3>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>[Tulis atau minta AI menyiapkan perubahan, lalu] commit dan push ke branch tersebut.</pre></div></div>
+    <div class="row"><span class="lab">Catatan</span><p>AI memakai Git Credential Manager yang tersimpan di komputer kamu (dari bab 4), jadi tidak perlu password manual. Karena itu, tahap manual <code class="i">git add/commit/push</code> tidak wajib peserta.</p></div>
   </div>
 
   <div class="step" data-id="5.3">
-    <h3><span class="sn">5.3</span>Commit dan push</h3>
-    <div class="code cmd"><pre>git add -A
-git commit -m "Tambah panduan github"
-git push -u origin revamp-<span class="ph" data-k="user">[username]</span></pre></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Push sukses, terminal menampilkan "branch set up to track origin/...". Di browser, buka <code class="i">github.com/<span class="ph" data-k="user">[username]</span>/<span class="ph" data-k="folder">[nama-folder]</span></code> dan lihat branch baru ada di daftar.</p></div>
-  </div>
-
-  <div class="step" data-id="5.4">
-    <h3><span class="sn">5.4</span>Tes autentikasi</h3>
-    <div class="row"><span class="lab">Alternatif</span><p>Kalau push ke repositori lain (mis. akun lain) gagal dengan "Authentication failed", cek ulang langkah 4 (autentikasi) dan pastikan memakai akun yang benar.</p></div>
+    <h3><span class="sn">5.3</span>Cek hasil di GitHub</h3>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Branch baru muncul di tab Branches repo, dan file/perubahan tercatat di commit tersebut.</p></div>
   </div>
 </section>
 
