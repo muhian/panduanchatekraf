@@ -309,6 +309,7 @@ html{scroll-behavior:smooth}
   <a href="#s6"><b>6</b><span>Troubleshooting</span></a>
   <a href="#s7"><b>7</b><span>Keamanan token</span></a>
   <a href="#s8"><b>8</b><span>FAQ</span></a>
+  <a href="#s9"><b>9</b><span>Deploy ke Vercel</span></a>
 </nav>
 
 <main>
@@ -542,6 +543,31 @@ git config --global --get credential.helper</pre></div>
     <button type="button" class="btn primary" id="planCopy">Salin dengan kalimat pembuka</button>
     <button type="button" class="btn" id="planReset">Kembalikan template</button>
     <span class="planstat" id="planStat"></span>
+  </div>
+</section>
+
+<!-- 9 -->
+<section id="s9">
+  <div class="sh"><span class="num">9</span><h2>Deploy ke Vercel</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 20 menit</span></div>
+  <p class="intro">Panduan deploy dari repo GitHub ke Vercel untuk aplikasi Web UMKM ini.</p>
+
+  <div class="step" data-id="9.1">
+    <h3><span class="sn">9.1</span>Deploy dari repo GitHub</h3>
+    <div class="row"><span class="lab">Langkah</span><p>Buka <a href="https://vercel.com/new" target="_blank" rel="noopener">vercel.com/new</a>, klik <b>Import GitHub</b>, pilih repo <code class="i">muhian/panduanchatekraf</code>, lalu klik <b>Deploy</b>.</p></div>
+    <div class="row"><span class="lab">Catatan</span><p>Pastikan branch <code class="i">main</code> sudah ada dan berisi kode aplikasi sesuai panduan.</p></div>
+  </div>
+
+  <div class="step" data-id="9.2">
+    <h3><span class="sn">9.2</span>Isi environment variable</h3>
+    <div class="row"><span class="lab">Langkah</span><p>Sebelum deploy, buka <b>Settings</b> → <b>Environment Variables</b> di Vercel, lalu tambahkan:</p></div>
+    <div class="code cmd"><pre>BETTER_AUTH_URL=https://[nama-folder].vercel.app
+BETTER_AUTH_SECRET=[kunci baru dari bun x @better-auth/cli secret]</pre></div>
+    <div class="row"><span class="lab">Catatan</span><p>Jangan pakai kunci yang sama dengan <code class="i">.env.local</code> untuk produksi.</p></div>
+  </div>
+
+  <div class="step" data-id="9.3">
+    <h3><span class="sn">9.3</span>Selesai dan dapat URL</h3>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Deploy selesai, dan URL <code class="i">https://[nama-folder].vercel.app</code> terbuka dan aplikasi jalan.</p></div>
   </div>
 </section>
 </main>
