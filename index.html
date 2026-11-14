@@ -387,17 +387,12 @@ html{scroll-behavior:smooth}
   </div>
 
   <div class="step" data-id="2.3">
-    <h3><span class="sn">2.3</span>Salin alamat clone</h3>
+    <h3><span class="sn">2.3</span>Salin alamat repo</h3>
     <div class="row"><span class="lab">Langkah</span><p>Di halaman repo barumu klik tombol hijau <b>Code</b>, pastikan tab <b>HTTPS</b> aktif, lalu klik ikon salin. Alamatnya berbentuk:</p></div>
-    <div class="code cmd"><pre>https://github.com/<span class="ph" data-k="user">[username]</span>/<span class="ph" data-k="folder">[nama-folder]</span>.git</pre></div>
-    <div class="row"><span class="lab">Catatan</span><p>Simpan alamat ini. Kamu akan memakainya di langkah clone. Jangan pilih SSH kecuali kamu sudah punya SSH key.</p></div>
+    <div class="code cmd"><pre>https://github.com/<span class="ph" data-k="user">[username]</span>/<span class="ph" data-k="folder">[nama-folder]</span></pre></div>
+    <div class="row"><span class="lab">Catatan</span><p>Simpan alamat ini. Kamu akan memakainya di langkah 5. Jangan pilih SSH kecuali kamu sudah punya SSH key.</p></div>
   </div>
 
-  <div class="step" data-id="2.4">
-    <h3><span class="sn">2.4</span>Aturan repo</h3>
-    <div class="row"><span class="lab">Wajib</span><p>Jangan pernah commit file <code class="i">.env.local</code> atau token/rahasia lain. Repo publik berarti siapa pun bisa membacanya. File <code class="i">.env.local</code> sudah masuk <code class="i">.gitignore</code>, biarkan begitu.</p></div>
-    <div class="row"><span class="lab">Tips</span><p>Satu perbaikan = satu commit. Kalau AI merusak sesuatu, kamu bisa kembali ke versi terakhir yang jalan.</p></div>
-  </div>
 </section>
 
 <!-- 3 -->
@@ -484,8 +479,8 @@ git config --global --get credential.helper</pre></div>
 
   <div class="step" data-id="5.1">
     <h3><span class="sn">5.1</span>Beri AI daftar isi repo</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Clone repo https://github.com/<span class="ph" data-k="user">[username]</span>/<span class="ph" data-k="folder">[nama-folder]</span>.git, lalu buat branch baru di dalamnya.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>AI selesai menclone repo, dan di browser kamu bisa melihat branch baru di repo GitHub kamu.</p></div>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Buka repo https://github.com/muhian/panduanchatekraf/tree/parfumku_web, lalu buat branch baru di dalamnya.</pre></div></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>AI selesai memproses repo, dan di browser kamu bisa melihat branch baru di repo GitHub kamu.</p></div>
   </div>
 
   <div class="step" data-id="5.2">
