@@ -1,7 +1,7 @@
 <!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Panduan Lab TanStack EKRAF</title>
+<title>Panduan Setup GitHub &amp; OpenCode/Freebuff</title>
 <script>try{var t=localStorage.getItem('tekraf-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-<meta name="description" content="Panduan lab revamp tampilan, perbaikan bug, dan penguatan keamanan dashboard admin TanStack Start.">
+<meta name="description" content="Panduan install dan konfigurasi GitHub di laptop peserta, dipandu lewat OpenCode atau Freebuff.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
@@ -265,27 +265,26 @@ html{scroll-behavior:smooth}
 
 <header class="head">
   <div class="head-copy">
-    <p class="eyebrow">Workshop TanStack untuk EKRAF</p>
-    <h1>Panduan Lab TanStack EKRAF</h1>
-    <p class="lead">Hari ini kamu mengambil alih dashboard admin produk EKRAF yang sudah jadi: tampilan diperbarui, error dibetulkan, dan celah keamanan ditutup. Kerjaan tetap dibantu AI, hasilnya masuk Pull Request di GitHub dan tayang di Vercel. Centang setiap langkah yang selesai, progresnya tersimpan di browser ini.</p>
+    <p class="eyebrow">Workshop Git &amp; Setup</p>
+    <h1>Panduan Setup GitHub &amp; OpenCode/Freebuff</h1>
+    <p class="lead">Panduan install dan konfigurasi GitHub di laptop peserta, dipandu lewat OpenCode atau Freebuff. Ikuti langkah per langkah, salin perintahnya langsung, lalu push pakai akun GitHub kamu sendiri. Centang setiap langkah yang selesai, progresnya tersimpan di browser ini.</p>
     <p class="muted" style="font-size:16px">Pilih Windows atau Mac dan alat AI di tombol kanan bawah. Petunjuk ikut menyesuaikan.</p>
   </div>
   <div class="term" aria-label="Gambaran alur kerja">
     <div class="term-bar"><i></i><i></i><i></i><span>alur kerja</span></div>
-<pre class="term-body"><span class="tl l1"><span class="dim">1</span>  clone + bun install</span>
-<span class="tl l2"><span class="dim">2</span>  seed admin di <span class="go">/setup</span></span>
-<span class="tl l3"><span class="dim">3</span>  revamp · fix · secure</span>
-<span class="tl l4"><span class="dim">4</span>  <span class="go">Pull Request di GitHub</span><span class="caret"></span></span></pre>
+<pre class="term-body"><span class="tl l1"><span class="dim">1</span>  install git + bun</span>
+<span class="tl l2"><span class="dim">2</span>  buat akun + repo</span>
+<span class="tl l3"><span class="dim">3</span>  login github (device flow)</span>
+<span class="tl l4"><span class="dim">4</span>  clone + commit + push</span><span class="caret"></span></pre>
   </div>
 </header>
 
-<div class="route" aria-label="Urutan kerja hari ini">
-  <a href="#s2"><b>2</b>Siapkan</a><span class="sep">&rarr;</span>
-  <a href="#s3"><b>3</b>Peta kode</a><span class="sep">&rarr;</span>
-  <a href="#s4"><b>4</b>Revamp</a><span class="sep">&rarr;</span>
-  <a href="#s6"><b>6</b>Keamanan</a><span class="sep">&rarr;</span>
-  <a href="#s7"><b>7</b>Pull request</a><span class="sep">&rarr;</span>
-  <a href="#s8"><b>8</b>Deploy</a>
+<div class="route" aria-label="Urutan kerja">
+  <a href="#s2"><b>2</b>Buat repo &amp; GitHub</a><span class="sep">&rarr;</span>
+  <a href="#s3"><b>3</b>Install Git &amp; konfigurasi</a><span class="sep">&rarr;</span>
+  <a href="#s4"><b>4</b>Autentikasi GitHub</a><span class="sep">&rarr;</span>
+  <a href="#s5"><b>5</b>Clone &amp; push</a><span class="sep">&rarr;</span>
+  <a href="#s6"><b>6</b>Troubleshooting</a>
 </div>
 
 <details class="me">
@@ -303,24 +302,20 @@ html{scroll-behavior:smooth}
 <nav class="toc" aria-label="Isi panduan" id="toc">
   <a href="#s0"><b>0</b><span>Sebelum datang</span></a>
   <a href="#s1"><b>1</b><span>Aturan dan pengaman</span></a>
-  <a href="#s2"><b>2</b><span>Siapkan proyek</span></a>
-  <a href="#s3"><b>3</b><span>Peta kode dan rencana</span></a>
-  <a href="#s4"><b>4</b><span>Revamp tampilan</span></a>
-  <a href="#s5"><b>5</b><span>Perbaiki error</span></a>
-  <a href="#s6"><b>6</b><span>Perkuat keamanan</span></a>
-  <a href="#s7"><b>7</b><span>Pull request</span></a>
-  <a href="#s8"><b>8</b><span>Deploy ke Vercel</span></a>
-  <a href="#s9"><b>9</b><span>Kumpulkan dan nilai</span></a>
-  <a href="#s10"><b>10</b><span>FAQ</span></a>
-  <a href="#s11"><b>11</b><span>Istilah</span></a>
+  <a href="#s2"><b>2</b><span>Buat repo dan GitHub</span></a>
+  <a href="#s3"><b>3</b><span>Install Git dan konfigurasi</span></a>
+  <a href="#s4"><b>4</b><span>Autentikasi GitHub</span></a>
+  <a href="#s5"><b>5</b><span>Clone, commit, push</span></a>
+  <a href="#s6"><b>6</b><span>Troubleshooting</span></a>
+  <a href="#s7"><b>7</b><span>Keamanan token</span></a>
+  <a href="#s8"><b>8</b><span>FAQ</span></a>
 </nav>
 
 <main>
-
 <!-- 0 -->
 <section id="s0">
   <div class="sh"><span class="num">0</span><h2>Sebelum datang</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Malam sebelumnya, sekitar 45 menit</span></div>
-  <div class="note warn"><strong>Kerjakan bagian ini sebelum hari workshop</strong><p>Memasang Bun, Git, dan aplikasi AI butuh unduhan besar. Kalau ditunda ke hari H, waktu kelas habis untuk instalasi.</p></div>
+  <div class="note warn"><strong>Kerjakan bagian ini sebelum hari workshop</strong><p>Memasang Git, Bun, dan aplikasi AI butuh unduhan besar. Kalau ditunda ke hari H, waktu kelas habis untuk instalasi.</p></div>
   <div class="chips"><span class="chip">Laptop Windows atau Mac</span><span class="chip">Boleh memasang aplikasi</span><span class="chip">Koneksi internet</span><span class="chip">Charger</span></div>
   <div class="pick">
     <h3>Pilih alat AI kamu</h3>
@@ -351,12 +346,12 @@ html{scroll-behavior:smooth}
     <h3><span class="sn">0.3</span>Pasang Bun</h3>
     <div class="only-win" style="display:grid;gap:12px">
       <div class="row"><span class="lab">Langkah</span><p>Buka <b>PowerShell</b> (cari di menu Start), tempel perintah di bawah, lalu tekan Enter. Tunggu sampai selesai.</p></div>
-      <div class="code"><pre>irm bun.sh/install.ps1 | iex</pre></div>
+      <div class="code cmd"><pre>irm bun.sh/install.ps1 | iex</pre></div>
       <div class="row"><span class="lab">Kalau diblokir</span><p>Muncul pesan kebijakan eksekusi? Jalankan <code class="i">Set-ExecutionPolicy -Scope CurrentUser RemoteSigned</code>, jawab <b>Y</b>, lalu ulangi perintah di atas.</p></div>
     </div>
     <div class="only-mac" style="display:grid;gap:12px">
       <div class="row"><span class="lab">Langkah</span><p>Buka <b>Terminal</b> dan jalankan perintah di bawah, lalu tekan Enter.</p></div>
-      <div class="code"><pre>curl -fsSL https://bun.sh/install | bash</pre></div>
+      <div class="code cmd"><pre>curl -fsSL https://bun.sh/install | bash</pre></div>
     </div>
     <div class="row"><span class="lab">Berhasil kalau</span><p>Tutup lalu buka lagi Terminal atau PowerShell, jalankan <code class="i">bun --version</code>, dan muncul nomor versi.</p></div>
   </div>
@@ -370,421 +365,213 @@ html{scroll-behavior:smooth}
       <div class="row"><span class="lab">Alat AI</span><p>Buka <a href="https://opencode.ai/download" target="_blank" rel="noopener">opencode.ai/download</a>, unduh aplikasi desktop, lalu pasang.</p></div>
     </div>
     <div class="row"><span class="lab">Berhasil kalau</span><p>Aplikasi alat AI terbuka dan menampilkan layar awal.</p></div>
-    <div class="row"><span class="lab">Kalau gagal</span><p>Peringatan keamanan saat membuka aplikasi? Lihat bagian 10. Kalau tetap tidak jalan, ganti alat AI lewat tombol kanan bawah.</p></div>
+    <div class="row"><span class="lab">Kalau gagal</span><p>Peringatan keamanan saat membuka aplikasi? Lihat bagian FAQ. Kalau tetap tidak jalan, ganti alat AI lewat tombol kanan bawah.</p></div>
   </div>
 </section>
 
 <!-- 1 -->
 <section id="s1">
   <div class="sh"><span class="num">1</span><h2>Aturan dan pengaman</h2></div>
-  <p class="intro">Kali ini kamu tidak membuat aplikasi dari nol. Kamu merawat aplikasi orang lain: memperbaiki tampilan, membetulkan bug, dan menutup celah keamanan. Perananmu adalah pengambil keputusan dan pemeriksa, AI yang mengetik kodenya.</p>
+  <p class="intro">Kamu merawat aplikasi orang lain: memperbaiki tampilan, membetulkan bug, dan menutup celah keamanan. Perananmu adalah pengambil keputusan dan pemeriksa, AI yang mengetik kodenya.</p>
   <div class="tri">
     <div><h3>Commit kecil, sering</h3><p>Satu perbaikan, satu commit. Kalau AI merusak sesuatu, kamu bisa kembali ke versi terakhir yang jalan.</p></div>
     <div><h3>Rahasia tidak masuk repo</h3><p><code class="i">.env.local</code> berisi kunci sesi. File itu tidak boleh ikut ter-commit, dan repo publik berarti siapa pun bisa membacanya.</p></div>
     <div><h3>Klien tidak dipercaya</h3><p>Validasi dan izin harus ada lagi di server. Memeriksa di browser saja bukan keamanan, hanya kenyamanan.</p></div>
   </div>
   <div class="note hint"><strong>Satu tugas, satu prompt</strong><p>Jangan minta AI mengerjakan revamp, fix, dan security sekaligus. Periksa hasil tiap langkah sebelum lanjut.</p></div>
-  <div class="note info"><strong>Repo ini adalah versi contoh</strong><p>Sebagian kode di repo contoh sudah benar. Tugasmu adalah memastikan perilakunya benar di salinanmu, bukan menyalin mentah: baca, uji di browser, dan pahami alasannya.</p></div>
 </section>
 
 <!-- 2 -->
 <section id="s2">
-  <div class="sh"><span class="num">2</span><h2>Siapkan proyek</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 25 menit</span></div>
-  <div class="note info"><strong>Tampilan aplikasi bisa sedikit berbeda</strong><p>Nama tombol dan menu bisa berubah mengikuti versi. Cari yang artinya paling dekat, atau minta fasilitator menunjukkan layarnya.</p></div>
+  <div class="sh"><span class="num">2</span><h2>Buat akun GitHub dan repo baru</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 15 menit</span></div>
+  <p class="intro">Repo adalah "folder proyek di internet". Semua kode, riwayat perubahan, dan kolaborasi terjadi di sana. Kamu butuh satu repo milikmu sendiri untuk mengerjakan tugas.</p>
 
   <div class="step" data-id="2.1">
-    <h3><span class="sn">2.1</span>Ambil salinan dari template, lalu clone</h3>
-    <div class="row"><span class="lab">Pakai template</span><p>Buka <a href="https://github.com/azzeal/tanstack_ekraf" target="_blank" rel="noopener">github.com/azzeal/tanstack_ekraf</a>, klik <b>Use this template</b> &rarr; <b>Create a new repository</b>. Ini membuat repo baru milikmu, bukan fork, jadi riwayatnya bersih.</p></div>
-    <div class="row"><span class="lab">Isi form</span><p>Nama repo <span class="ph" data-k="folder">[nama-folder]</span>, pilih <b>Public</b>, lalu klik <b>Create repository</b>.</p></div>
-    <div class="row"><span class="lab">Clone</span><p>Di halaman repo barumu klik <b>Code</b> dan salin alamatnya. Lalu buka folder <b>Documents</b>, klik kanan di area kosong, pilih <b>Open Git Bash here</b> (Windows) atau buka Terminal (Mac), dan jalankan tiga perintah berikut.</p></div>
-    <div class="code cmd"><pre>git clone https://github.com/<span class="ph" data-k="user">[username GitHub]</span>/<span class="ph" data-k="folder">[nama-folder]</span>.git
-cd <span class="ph" data-k="folder">[nama-folder]</span>
-bun install</pre></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Folder proyek muncul di Documents, <code class="i">bun install</code> selesai tanpa tulisan merah, dan <code class="i">git remote -v</code> menunjuk ke repo milikmu sendiri.</p></div>
-    <div class="row"><span class="lab">Catatan fasilitator</span><p>Supaya tombol <b>Use this template</b> muncul di repo asal, buka <b>Settings</b> repo itu dan centang <b>Template repository</b>.</p></div>
+    <h3><span class="sn">2.1</span>Buat akun GitHub</h3>
+    <div class="row"><span class="lab">Langkah</span><p>Buka <a href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a>. Isi email, password, dan username. Username akan jadi bagian alamat profilmu: <code class="i">github.com/<span class="ph" data-k="user">[username]</span></code>.</p></div>
+    <div class="row"><span class="lab">Verifikasi</span><p>Cek email, masukkan kode verifikasi yang dikirim GitHub. Tanpa verifikasi, kamu tidak bisa membuat repo.</p></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Kamu bisa login ke github.com dan melihat dashboard awal (halaman dengan daftar repo).</p></div>
   </div>
 
   <div class="step" data-id="2.2">
-    <h3><span class="sn">2.2</span>Buat file .env.local</h3>
-    <div class="row"><span class="lab">Kenapa</span><p>Aplikasi butuh alamat dasar dan kunci sesi. Tanpa keduanya, login akan gagal.</p></div>
-    <div class="row"><span class="lab">Buat kunci</span><p>Jalankan perintah ini di folder proyek, lalu salin hasilnya.</p><div class="code cmd"><pre>bun x @better-auth/cli secret</pre></div></div>
-    <div class="row"><span class="lab">Isi file</span><p>Buat file bernama <code class="i">.env.local</code> di folder utama proyek, isinya dua baris berikut.</p><div class="code cmd"><pre>BETTER_AUTH_URL=http://localhost:3000
-BETTER_AUTH_SECRET=<span class="ph">tempel-hasil-di-atas</span></pre></div></div>
-    <div class="row"><span class="lab">Jangan</span><p>Jangan pernah menempelkan isi <code class="i">.env.local</code> ke chat AI atau ke GitHub. File itu sudah masuk <code class="i">.gitignore</code>, biarkan begitu.</p></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>File <code class="i">.env.local</code> ada di folder proyek dan berisi dua baris itu.</p></div>
+    <h3><span class="sn">2.2</span>Buat repo baru (dari template)</h3>
+    <div class="row"><span class="lab">Pakai template</span><p>Buka <a href="https://github.com/azzeal/tanstack_ekraf" target="_blank" rel="noopener">github.com/azzeal/tanstack_ekraf</a>, klik <b>Use this template</b> &rarr; <b>Create a new repository</b>. Ini membuat repo baru milikmu, bukan fork, jadi riwayatnya bersih.</p></div>
+    <div class="row"><span class="lab">Isi form</span><p>Nama repo <span class="ph" data-k="folder">[nama-folder]</span>, pilih <b>Public</b>, lalu klik <b>Create repository</b>. Nama repo sebaiknya huruf kecil tanpa spasi (contoh: <code class="i">dashboard-kopi-nusa</code>).</p></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Halaman repo barumu terbuka, alamatnya <code class="i">github.com/<span class="ph" data-k="user">[username]</span>/<span class="ph" data-k="folder">[nama-folder]</span></code>.</p></div>
   </div>
 
   <div class="step" data-id="2.3">
-    <h3><span class="sn">2.3</span>Jalankan aplikasinya</h3>
-    <div class="code"><pre>bun dev</pre></div>
-    <div class="row"><span class="lab">Buka</span><p>Kunjungi <code class="i">http://localhost:3000</code> di browser.</p></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Halaman awal aplikasi terbuka tanpa layar error. Biarkan terminal itu tetap berjalan selama kamu bekerja.</p></div>
-    <div class="row"><span class="lab">Kalau port dipakai</span><p>Hentikan dengan <b>Ctrl+C</b> di terminal, jalankan lagi, atau minta AI memakai port lain.</p></div>
+    <h3><span class="sn">2.3</span>Salin alamat clone</h3>
+    <div class="row"><span class="lab">Langkah</span><p>Di halaman repo barumu klik tombol hijau <b>Code</b>, pastikan tab <b>HTTPS</b> aktif, lalu klik ikon salin. Alamatnya berbentuk:</p></div>
+    <div class="code cmd"><pre>https://github.com/<span class="ph" data-k="user">[username]</span>/<span class="ph" data-k="folder">[nama-folder]</span>.git</pre></div>
+    <div class="row"><span class="lab">Catatan</span><p>Simpan alamat ini. Kamu akan memakainya di langkah clone. Jangan pilih SSH kecuali kamu sudah punya SSH key.</p></div>
   </div>
 
   <div class="step" data-id="2.4">
-    <h3><span class="sn">2.4</span>Seed admin lalu login</h3>
-    <div class="row"><span class="lab">Seed</span><p>Buka <code class="i">http://localhost:3000/setup</code> dan klik <b>Seed Admin Account</b>. Perintah ini membuat akun admin dan beberapa produk contoh.</p></div>
-    <div class="row"><span class="lab">Login</span><p>Buka <code class="i">/demo/better-auth</code> (alamat <code class="i">/login</code> mengalihkan ke sana), masuk dengan email <code class="i">admin@example.com</code> dan password <code class="i">admin12345</code>. Halaman ini bagian dari Tugas A: tampilan masuknya akan kamu poles nanti.</p></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Kamu masuk ke <code class="i">/dashboard</code> dan melihat sidebar dengan menu Dashboard, Products, dan Users.</p></div>
-    <div class="row"><span class="lab">Ingat</span><p>Tidak ada database permanen. Data hilang setiap server restart, jadi ulangi seed setelah restart atau setelah deploy.</p></div>
-  </div>
-
-  <div class="step" data-id="2.5">
-    <h3><span class="sn">2.5</span>Buat branch kerja</h3>
-    <div class="code cmd"><pre>git checkout -b revamp-<span class="ph" data-k="user">[username GitHub]</span></pre></div>
-    <div class="row"><span class="lab">Kenapa</span><p>Semua perubahanmu masuk ke branch ini, bukan ke <code class="i">main</code>. Nanti branch ini yang jadi Pull Request.</p></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p><code class="i">git status</code> menyebut nama branch barumu.</p></div>
+    <h3><span class="sn">2.4</span>Aturan repo</h3>
+    <div class="row"><span class="lab">Wajib</span><p>Jangan pernah commit file <code class="i">.env.local</code> atau token/rahasia lain. Repo publik berarti siapa pun bisa membacanya. File <code class="i">.env.local</code> sudah masuk <code class="i">.gitignore</code>, biarkan begitu.</p></div>
+    <div class="row"><span class="lab">Tips</span><p>Satu perbaikan = satu commit. Kalau AI merusak sesuatu, kamu bisa kembali ke versi terakhir yang jalan.</p></div>
   </div>
 </section>
 
 <!-- 3 -->
 <section id="s3">
-  <div class="sh"><span class="num">3</span><h2>Peta kode dan rencana</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 30 menit</span></div>
-  <p class="intro">Sebelum mengubah apa pun, pahami dulu letak bagian-bagiannya. Aplikasi ini memakai TanStack Start: setiap file di <code class="i">src/routes</code> otomatis menjadi halaman, dan semua penulisan data lewat server function.</p>
+  <div class="sh"><span class="num">3</span><h2>Install Git dan konfigurasi identitas</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 15 menit</span></div>
+  <p class="intro">Git adalah program yang mencatat riwayat perubahan kode. Identitas (nama &amp; email) dipakai untuk menandai setiap commit, supaya orang tahu siapa yang mengubah apa.</p>
 
   <div class="step" data-id="3.1">
-    <h3><span class="sn">3.1</span>Baca peta repo</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Jelaskan peta repo proyek ini dengan bahasa sederhana: untuk tiap folder utama (src/routes, src/lib, src/components), sebutkan isinya dan hubungannya dengan tugas revamp, fix, dan security. Sebutkan juga file routeTree.gen.ts dan kapan ia harus dibuat ulang.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Kamu bisa menyebut letak sidebar, modal produk, dan server function tanpa membuka file.</p></div>
+    <h3><span class="sn">3.1</span>Install Git</h3>
+    <div class="only-win" style="display:grid;gap:12px">
+      <div class="row"><span class="lab">Windows</span><p>Buka <a href="https://git-scm.com/install/windows" target="_blank" rel="noopener">git-scm.com/install/windows</a>, unduh pemasang 64-bit, lalu jalankan. Pertahankan pilihan bawaan, <b>termasuk Git Credential Manager</b> (penting untuk login).</p></div>
+    </div>
+    <div class="only-mac" style="display:grid;gap:12px">
+      <div class="row"><span class="lab">Mac</span><p>Buka <a href="https://git-scm.com/install/mac" target="_blank" rel="noopener">git-scm.com/install/mac</a> dan ikuti petunjuk di halaman itu.</p></div>
+    </div>
+    <div class="row"><span class="lab">Verifikasi</span><p>Buka PowerShell (Windows) atau Terminal (Mac), jalankan:</p><div class="code cmd"><pre>git --version</pre></div><p>Harus muncul nomor versi (contoh: <code class="i">git version 2.47.0</code>).</p></div>
   </div>
 
   <div class="step" data-id="3.2">
-    <h3><span class="sn">3.2</span>Telusuri empat halaman</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Dengan server berjalan, buka /dashboard, /products, /users, dan /demo/better-auth. Untuk tiap halaman catat: yang sudah bagus, yang rusak atau membingungkan, dan apa yang akan kamu ubah. Cek juga tampilannya di lebar 400px. Simpan hasilnya ke file TEMUAN.md di folder proyek.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p><code class="i">TEMUAN.md</code> berisi minimal 5 temuan nyata, bukan dugaan.</p></div>
+    <h3><span class="sn">3.2</span>Set nama dan email</h3>
+    <div class="row"><span class="lab">Perintah</span><p>Jalankan dua perintah ini, ganti dengan nama dan emailmu. Gunakan email yang sama dengan akun GitHub.</p></div>
+    <div class="code cmd"><pre>git config --global user.name "Nama Kamu"
+git config --global user.email "emailmu@example.com"</pre></div>
+    <div class="row"><span class="lab">Tips</span><p>Kalau tidak mau email asli tampil publik, pakai email noreply GitHub: <code class="i">username@users.noreply.github.com</code> (lihat Settings &rarr; Emails di GitHub).</p></div>
   </div>
 
   <div class="step" data-id="3.3">
-    <h3><span class="sn">3.3</span>Tulis rencanamu di kotak ini</h3>
-    <div class="row"><span class="lab">Langkah</span><p>Ganti semua teks dalam tanda kurung siku. Tulisanmu tersimpan otomatis di browser ini.</p></div>
-    <div>
-      <textarea id="plan" class="plan" spellcheck="false" aria-label="Isi RENCANA.md"></textarea>
-      <div class="planbar">
-        <button type="button" class="btn primary" id="planCopy">Salin dengan kalimat pembuka</button>
-        <button type="button" class="btn" id="planReset">Kembalikan template</button>
-        <span class="planstat" id="planStat" aria-live="polite"></span>
-      </div>
-    </div>
-    <div class="row"><span class="lab">Simpan jadi file</span><p>Tempel hasil salinan ke chat alat AI. Kalimat pembuka yang ikut tersalin meminta AI membuat <code class="i">RENCANA.md</code> di folder proyek.</p></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>File <code class="i">RENCANA.md</code> muncul di folder proyek dan isinya sama dengan tulisanmu.</p></div>
-  </div>
-
-  <div class="step" data-id="3.4">
-    <h3><span class="sn">3.4</span>Periksa rencanamu</h3>
-    <ul class="clean">
-      <li>Ada minimal 3 halaman yang akan dirapikan, dengan alasan masing-masing.</li>
-      <li>Ada minimal 1 bug yang akan dibetulkan, lengkap dengan cara memunculkannya.</li>
-      <li>Ada minimal 2 perbaikan keamanan: satu soal izin, satu soal validasi di server.</li>
-      <li>Tidak ada tanda kurung siku yang tersisa, dan tidak ada rahasia yang ditulis.</li>
-    </ul>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Temanmu membaca rencana itu dan bisa menebak hasil akhirnya tanpa bertanya.</p></div>
+    <h3><span class="sn">3.3</span>Verifikasi konfigurasi</h3>
+    <div class="code cmd"><pre>git config --global user.name
+git config --global user.email
+git config --global --get credential.helper</pre></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Nama dan emailmu tampil, dan <code class="i">credential.helper</code> menampilkan <code class="i">manager</code> (Git Credential Manager). Kalau kosong, lihat bagian Troubleshooting.</p></div>
   </div>
 </section>
 
 <!-- 4 -->
 <section id="s4">
-  <div class="sh"><span class="num">4</span><h2>Revamp tampilan</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 90 menit</span></div>
-  <p class="intro">Target: minimal tiga halaman terasa seperti produk sungguhan, bukan proyek contoh. Kerjakan satu bagian, lihat hasilnya di browser, baru lanjut.</p>
+  <div class="sh"><span class="num">4</span><h2>Autentikasi GitHub (OpenCode / Freebuff)</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 20 menit</span></div>
+  <p class="intro">Supaya kamu bisa push (unggah kode) ke GitHub, komputermu harus "dikenali" oleh GitHub. Kita pakai <b>Git Credential Manager (GCM)</b> yang sudah terpasang bersama Git. Ia menyimpan loginmu sekali, lalu dipakai otomatis.</p>
+
+  <div class="note info"><strong>Awam? Pilih Opsi A (Device flow)</strong><p>Tidak perlu buat token manual. Cukup satu perintah, lalu buka browser dan masukkan kode. Paling mudah dan aman.</p></div>
 
   <div class="step" data-id="4.1">
-    <h3><span class="sn">4.1</span>Rapikan sidebar dashboard</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Baca src/routes/_admin.tsx dan komponen sidebar-nya. Rapikan tampilan sidebar: beri ikon lucide-react untuk tiap menu, tandai menu yang sedang aktif, dan buat bisa dilipat. Di layar HP, sidebar menjadi laci yang dibuka lewat tombol hamburger. Jangan ubah logika penjagaan login.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Menu aktif terlihat jelas, ikon muncul, dan di lebar 400px sidebar tidak menutupi isi.</p></div>
+    <h3><span class="sn">4.1</span>Cek Git Credential Manager</h3>
+    <div class="code cmd"><pre>git credential-manager --version</pre></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Muncul nomor versi (contoh: <code class="i">2.9.0</code>). Kalau "not recognized", Git belum terpasang dengan benar (ulangi langkah 3.1).</p></div>
   </div>
 
   <div class="step" data-id="4.2">
-    <h3><span class="sn">4.2</span>Poles modal produk dan modal peran</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Modal ProductFormModal dan UserRoleModal sudah memakai dialog shadcn. Poles keduanya: tampilkan pesan validasi di bawah kolom, nonaktifkan tombol simpan saat menyimpan, tampilkan status memuat, dan pastikan tombol Batal menutup tanpa menyimpan. Jangan mengganti komponen ui/ yang sudah ada.</pre></div></div>
-    <div class="row"><span class="lab">Uji</span><p>Buka <code class="i">/products</code>, klik tombol tambah produk, kosongkan satu kolom, lalu simpan. Pesan kesalahan harus muncul di kolom itu, bukan di console.</p></div>
+    <h3><span class="sn">4.2</span>Opsi A — Device flow (disarankan)</h3>
+    <div class="row"><span class="lab">Perintah</span><p>Jalankan di PowerShell/Terminal:</p><div class="code cmd"><pre>git credential-manager github login --device</pre></div></div>
+    <div class="row"><span class="lab">Yang terjadi</span><p>Terminal menampilkan kode (mis. <code class="i">ABCD-1234</code>) dan alamat <code class="i">https://github.com/login/device</code>. Buka alamat itu di browser, masuk ke akun GitHubmu, masukkan kode. Setelah "Authorized", terminal selesai dengan sendirinya.</p></div>
+    <div class="row"><span class="lab">Kalau --device tidak jalan</span><p>Coba tambahkan <code class="i">--no-ui</code>: <code class="i">git credential-manager github login --device --no-ui</code>. Atau pakai Opsi B.</p></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Perintah selesai tanpa error, dan <code class="i">git credential-manager github list</code> menampilkan username GitHubmu.</p></div>
   </div>
 
   <div class="step" data-id="4.3">
-    <h3><span class="sn">4.3</span>Desain ulang halaman login</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Desain ulang halaman masuk di /demo/better-auth (/login mengalihkan ke sana) menjadi kartu sign-in yang bersih dan modern: terpusat, ada judul dan logo sederhana, bayangan halus, mendukung mode gelap, dan pesan kesalahan yang jelas saat email atau password salah. Jangan tampilkan pesan yang membocorkan apakah email terdaftar. Pertahankan fungsi login yang sudah ada.</pre></div></div>
-    <div class="row"><span class="lab">Uji</span><p>Coba password salah, pastikan pesannya jelas dan tidak menyebut akun mana yang keliru. Coba juga mode gelap lewat tombol tema.</p></div>
+    <h3><span class="sn">4.3</span>Opsi B — Personal Access Token (PAT)</h3>
+    <div class="row"><span class="lab">Buat token</span><p>Buka <a href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> &rarr; <b>Generate new token</b> &rarr; <b>Generate new token (classic)</b>. Beri nama, pilih masa berlaku, centang scope <b>repo</b>, lalu <b>Generate token</b>. <b>Salin token sekarang</b> (hanya tampil sekali).</p></div>
+    <div class="row"><span class="lab">Perintah</span><p>Ganti <code class="i">&lt;TOKEN&gt;</code> dengan token yang kamu salin (tempel langsung, tanpa tanda kurung):</p></div>
+    <div class="code cmd"><pre>git credential-manager github login --pat=&lt;TOKEN&gt;</pre></div>
+    <div class="row"><span class="lab">Keamanan</span><p>Jangan tempel token ke chat AI atau GitHub issue. Token yang bocor = siapa pun bisa mengakses repomu. Kalau bocor, hapus token di settings dan buat baru.</p></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p><code class="i">git credential-manager github list</code> menampilkan username GitHubmu.</p></div>
   </div>
 
   <div class="step" data-id="4.4">
-    <h3><span class="sn">4.4</span>Tambah input gambar produk</h3>
-    <div class="row"><span class="lab">Aturan</span><p>Gambar disimpan sebagai data URL, sisi terpanjang maksimal <b>512 px</b>, hanya PNG, JPEG, WebP, atau GIF. Batas panjang data URL 400.000 karakter.</p></div>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Tambahkan input gambar di modal produk: pilihan file dan kolom URL, lengkap dengan pratinjau. Sebelum disimpan, perkecil gambar di browser agar sisi terpanjang maksimal 512px, dan tolak tipe selain image/png, image/jpeg, image/webp, image/gif. Tampilkan pesan bila gambar terlalu besar. Ingat: pemeriksaan di browser hanya untuk kenyamanan.</pre></div></div>
-    <div class="row"><span class="lab">Uji</span><p>Unggah foto besar dari HP, simpan, lalu buka detail produk. Gambar harus tampil dan ukurannya sudah diperkecil.</p></div>
+    <h3><span class="sn">4.4</span>Cek akun tersimpan</h3>
+    <div class="code cmd"><pre>git credential-manager github list</pre></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Daftar akun tersimpan muncul. Dengan Opsi A, itu nama akunmu (mis. <span class="ph" data-k="user">muhian</span>). Untuk memakai akun lain, logout lalu login lagi.</p></div>
   </div>
 
   <div class="step" data-id="4.5">
-    <h3><span class="sn">4.5</span>Hapus halaman demo</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Hapus semua route demo dan halaman scaffold yang tidak dipakai produk ini (folder src/routes/demo, route about, dan sejenisnya). Setelah dihapus, jalankan bunx tsr generate, lalu pastikan tidak ada tautan mati di Header, Footer, atau __root.tsx. Tampilkan daftar file yang kamu ubah.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Tidak ada tautan yang berakhir 404, dan <code class="i">bun dev</code> tetap berjalan tanpa error.</p></div>
-  </div>
-
-  <div class="step" data-id="4.6">
-    <h3><span class="sn">4.6</span>Responsif dan keadaan data</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Pastikan semua halaman admin nyaman di lebar 400px: tabel tidak boleh melebar keluar layar, gunakan kartu atau gulir horizontal yang rapi. Tambahkan keadaan memuat, kosong, dan gagal pada halaman yang mengambil data. Gunakan Tailwind dan komponen ui/ yang ada.</pre></div></div>
-    <div class="row"><span class="lab">Uji</span><p>Hemat data ke keadaan kosong dengan menghapus semua produk, lalu lihat pesannya. Matikan server sebentar untuk melihat keadaan gagal.</p></div>
-  </div>
-
-  <div class="step" data-id="4.7">
-    <h3><span class="sn">4.7</span>Catat prompt yang berhasil</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Tambahkan catatan ke file PROMPT-LOG.md (buat bila belum ada). Isinya: prompt perbaikan saya yang terakhir, apa hasilnya, dan apakah perlu diulang. Tulis dalam bahasa Indonesia yang sederhana.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p><code class="i">PROMPT-LOG.md</code> berisi minimal 3 catatan sebelum kamu mengumpulkan.</p></div>
+    <h3><span class="sn">4.5</span>Ganti akun / logout</h3>
+    <div class="code cmd"><pre>git credential-manager github logout &lt;username&gt;</pre></div>
+    <div class="row"><span class="lab">Catatan</span><p>Logout membuang credential akun itu dari komputer ini. Setelah logout, akun tidak bisa dipakai sampai login lagi.</p></div>
   </div>
 </section>
 
 <!-- 5 -->
 <section id="s5">
-  <div class="sh"><span class="num">5</span><h2>Perbaiki error</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 60 menit</span></div>
-  <p class="intro">Bagian ini menilai cara kamu membaca pesan error, bukan kecepatan menebak. Selalu tempel pesan aslinya ke AI, jangan diringkas.</p>
+  <div class="sh"><span class="num">5</span><h2>Clone, commit, dan push</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 20 menit</span></div>
+  <p class="intro">Sekarang saatnya membuat repo di laptop dan menguji push ke GitHub dengan akunmu.</p>
 
   <div class="step" data-id="5.1">
-    <h3><span class="sn">5.1</span>Jalankan lint dan betulkan</h3>
-    <div class="code"><pre>bun run lint</pre></div>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Ini hasil bun run lint di proyek ini:
-
-[tempel keluaran lengkap]
-
-Betulkan satu per satu dari yang paling sedikit risikonya. Jelaskan tiap perubahan dalam satu kalimat. Jangan mengubah perilaku aplikasi hanya demi menghilangkan peringatan.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Perintah lint selesai tanpa error baru. Peringatan sisa dari scaffold boleh ada asal kamu bisa menjelaskannya.</p></div>
+    <h3><span class="sn">5.1</span>Clone repo</h3>
+    <div class="code cmd"><pre>git clone https://github.com/<span class="ph" data-k="user">[username]</span>/<span class="ph" data-k="folder">[nama-folder]</span>.git</pre></div>
+    <div class="code cmd"><pre>cd <span class="ph" data-k="folder">[nama-folder]</span>
+bun install</pre></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Folder proyek muncul, <code class="i">bun install</code> selesai tanpa tulisan merah, dan <code class="i">git remote -v</code> menunjuk ke repo sendiri.</p></div>
   </div>
 
   <div class="step" data-id="5.2">
-    <h3><span class="sn">5.2</span>Kolom form produk tidak bisa diketik</h3>
-    <div class="row"><span class="lab">Gejala</span><p>Di modal tambah atau edit produk, kolom nama, deskripsi, harga, dan stok menolak ketikan.</p></div>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Di modal produk, semua kolom tidak bisa diketik. Periksa src/components/ProductForm.tsx: pastikan setiap input adalah controlled input yang benar, dengan value dari field.state.value dan onChange yang memanggil field.handleChange(event.target.value), serta tidak ada key yang membuat form ter-mount ulang di setiap ketikan. Jelaskan penyebabnya sebelum memperbaiki.</pre></div></div>
-    <div class="row"><span class="lab">Uji</span><p>Ketik nama produk, tab ke kolom harga, lalu simpan. Semua isi harus tetap ada setelah modal ditutup dan dibuka lagi.</p></div>
+    <h3><span class="sn">5.2</span>Buat branch kerja</h3>
+    <div class="code cmd"><pre>git checkout -b revamp-<span class="ph" data-k="user">[username]</span></pre></div>
+    <div class="row"><span class="lab">Kenapa</span><p>Semua perubahanmu masuk ke branch ini, bukan ke <code class="i">main</code>. Nanti branch ini yang jadi Pull Request.</p></div>
   </div>
 
   <div class="step" data-id="5.3">
-    <h3><span class="sn">5.3</span>Build harus bersih</h3>
-    <div class="code"><pre>bun run build</pre></div>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Build gagal dengan pesan ini:
-
-[tempel pesan]
-
-Cari akar masalahnya, bukan hanya membungkam error dengan any atau @ts-ignore. Setelah beres, jalankan bun run build lagi dan tunjukkan hasilnya.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Build selesai tanpa error, dan <code class="i">bun dev</code> masih bisa dijalankan.</p></div>
+    <h3><span class="sn">5.3</span>Commit dan push</h3>
+    <div class="code cmd"><pre>git add -A
+git commit -m "Tambah panduan github"
+git push -u origin revamp-<span class="ph" data-k="user">[username]</span></pre></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Push sukses, terminal menampilkan "branch set up to track origin/...". Di browser, buka <code class="i">github.com/<span class="ph" data-k="user">[username]</span>/<span class="ph" data-k="folder">[nama-folder]</span></code> dan lihat branch baru ada di daftar.</p></div>
   </div>
 
   <div class="step" data-id="5.4">
-    <h3><span class="sn">5.4</span>Uji semua route secara manual</h3>
-    <div class="tw"><table>
-      <thead><tr><th>Route</th><th>Harus terjadi</th></tr></thead>
-      <tbody>
-        <tr><td><code class="i">/</code>, <code class="i">/login</code>, <code class="i">/setup</code></td><td>Terbuka tanpa login. Seed aman dijalankan dua kali.</td></tr>
-        <tr><td><code class="i">/dashboard</code></td><td>Dialihkan ke login saat belum masuk. Sidebar tampil setelah masuk.</td></tr>
-        <tr><td><code class="i">/products</code></td><td>Daftar produk tampil, urutannya bisa diubah, modal tambah, edit, dan hapus bekerja.</td></tr>
-        <tr><td><code class="i">/users</code></td><td>Hanya admin. Peran bisa diganti, admin terakhir tidak bisa dihapus.</td></tr>
-      </tbody>
-    </table></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Semua baris di tabel itu kamu coba sendiri, bukan diasumsikan.</p></div>
-  </div>
-
-  <div class="step" data-id="5.5">
-    <h3><span class="sn">5.5</span>Tiga jebakan khas TanStack</h3>
-    <ul class="clean">
-      <li><code class="i">useParams()</code> wajib diberi asal route, misalnya <code class="i">useParams({ from: "/products/$productId" })</code>. Tanpa itu, halaman error.</li>
-      <li><code class="i">createServerFn</code> hanya mendukung <b>GET</b> dan <b>POST</b>. Jangan memakai PATCH atau DELETE; tulis maksudnya di body.</li>
-      <li>Setiap menambah atau menghapus file route, jalankan <code class="i">bunx tsr generate</code> supaya <code class="i">routeTree.gen.ts</code> ikut berubah.</li>
-    </ul>
-    <div class="row"><span class="lab">Kalau ragu</span><div class="code"><pre>Jelaskan dengan bahasa sederhana cara kerja file-based routing di TanStack Router pada proyek ini, lalu tunjukkan satu contoh menambah route baru yang butuh parameter.</pre></div></div>
+    <h3><span class="sn">5.4</span>Tes autentikasi</h3>
+    <div class="row"><span class="lab">Alternatif</span><p>Kalau push ke repositori lain (mis. akun lain) gagal dengan "Authentication failed", cek ulang langkah 4 (autentikasi) dan pastikan memakai akun yang benar.</p></div>
   </div>
 </section>
 
 <!-- 6 -->
 <section id="s6">
-  <div class="sh"><span class="num">6</span><h2>Perkuat keamanan</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 75 menit</span></div>
-  <div class="note warn"><strong>Minimal dua perbaikan, satu dari tiap kolom</strong><p>Cukup kerjakan <b>satu pilihan</b> dari Langkah 6.1 dan <b>satu pilihan</b> dari Langkah 6.2 — dua langkah itu plus catatan di 6.3 sudah dihitung selesai. Setiap perbaikan wajib kamu jelaskan: serangan apa yang dicegah.</p></div>
+  <div class="sh"><span class="num">6</span><h2>Troubleshooting GitHub</h2></div>
 
   <div class="step" data-id="6.1">
-    <h3><span class="sn">6.1</span>Satu perbaikan kolom izin akses (pilih 1)</h3>
-    <div class="row"><span class="lab">Pilihan A</span><p><b>Audit izin di setiap server function.</b> Minta AI memeriksa semua server function dan route API, lalu menambahkan penjagaan yang kurang.</p></div>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Periksa semua server function di src/lib/server/ dan route API. Buat tabel: nama function, apakah memanggil requireAuth atau requireAdmin, dan apakah alasannya tepat. Jangan ubah kode dulu, cukup laporkan yang belum dijaga.</pre></div></div>
-    <div class="row"><span class="lab">Pilihan B</span><p><b>Cegah admin mengunci dirinya sendiri.</b></p></div>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Di server function updateUserRole dan deleteUser, tolak perubahan yang membuat admin menurunkan perannya sendiri atau menghapus akunnya sendiri. Tolak juga penghapusan admin terakhir. Kembalikan pesan error yang jelas. Tambahkan juga pemeriksaan yang sama di tampilan agar tombolnya nonaktif, tetapi tetap tegakkan di server.</pre></div></div>
-    <div class="row"><span class="lab">Uji</span><p>Masuk sebagai admin, coba ubah peranmu sendiri jadi user, lalu coba hapus akunmu. Keduanya harus ditolak.</p></div>
-    <div class="row"><span class="lab">Pilihan C</span><p><b>Batasi percobaan login.</b></p></div>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Tambahkan pembatasan percobaan login: maksimal 5 kegagalan per alamat IP dalam 15 menit, lalu tolak sementara dengan pesan yang sopan. Gunakan src/lib/rate-limit.ts yang sudah ada. Pastikan penghitungnya tidak bisa dilewati dengan mengganti header. Jelaskan batasannya dan risikonya di komentar singkat.</pre></div></div>
-    <div class="row"><span class="lab">Uji</span><p>Coba login dengan password salah 6 kali. Percobaan keenam harus ditolak, dan login dengan password benar sesudahnya juga ditolak sampai waktunya habis.</p></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Salah satu dari tiga pilihan itu selesai dan teruji. Centang langkah ini, jangan tunggu dua-duanya.</p></div>
-  </div>
-
-  <div class="step" data-id="6.2">
-    <h3><span class="sn">6.2</span>Satu perbaikan pengerasan aplikasi (pilih 1)</h3>
-    <div class="row"><span class="lab">Pilihan A</span><p><b>Validasi ulang di server dengan Zod.</b></p></div>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Pastikan setiap server function memvalidasi inputnya dengan Zod di server, memakai .strict() agar kolom asing ditolak. Periksa juga batas panjang teks, harga dan stok tidak negatif, serta id harus berupa string yang ada. Jangan mengandalkan validasi di form saja. Tunjukkan satu contoh request yang sekarang ditolak.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Mengirim kolom tambahan seperti <code class="i">id</code> atau <code class="i">createdAt</code> dari klien ditolak, bukan diterima diam-diam.</p></div>
-    <div class="row"><span class="lab">Pilihan B</span><p><b>Cookie sesi dan kebocoran rahasia.</b></p></div>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Periksa konfigurasi sesi di src/lib/auth.ts. Pastikan cookie httpOnly, sameSite lax, secure hanya di produksi, dan ada masa berlaku sesi yang wajar. Lalu cari di seluruh repo: kunci rahasia yang ditulis langsung di kode, file .env yang ikut ter-commit, dan pemakaian dangerouslySetInnerHTML dengan data pengguna. Laporkan temuan dan usulkan perbaikannya.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p><code class="i">git status</code> tidak menampilkan <code class="i">.env.local</code>, dan tidak ada rahasia di file yang masuk repo.</p></div>
-    <div class="row"><span class="lab">Centang</span><p>Salah satu dari dua pilihan itu selesai dan teruji. Centang langkah ini, jangan tunggu dua-duanya.</p></div>
-  </div>
-
-  <div class="step" data-id="6.3">
-    <h3><span class="sn">6.3</span>Tulis alasan keamanannya</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Buat file SECURITY-NOTES.md. Untuk setiap perbaikan keamanan yang saya lakukan, tulis: nama perbaikan, file yang diubah, serangan yang dicegah, dan cara mengujinya dalam satu langkah. Bahasa Indonesia, maksimal dua kalimat per poin.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Setiap perbaikan punya penjelasan yang bisa kamu bacakan saat demo.</p></div>
+    <h3><span class="sn">6.1</span>Gejala umum dan solusi</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Error</th><th>Kegiatan</th></tr></thead>
+        <tbody>
+          <tr><td><code class="i">Repository not found</code></td><td>Repo salah, atau akun GitHub yang dipakai belum dibuat. Cek nama repo (huruf kecil, tanpa spasi) dan username.</td></tr>
+          <tr><td><code class="i">Invalid username or token</code></td><td>Token kadang kadaluarsa atau salah akun. Logout: <code class="i">git credential-manager github logout &lt;username&gt;</code>, lalu login lagi.</td></tr>
+          <tr><td><code class="i">Authentication failed</code></td><td>Belum login, atau token tidak punya scope <b>repo</b>. Buat token baru dengan scope <b>repo</b>, lalu login via Opsi B.</td></tr>
+          <tr><td><code class="i">Permission denied</code></td><td>Repo private dan kamu bukan anggota/team. Pakai akun yang punya akses, atau ubah repo ke Public.</td></tr>
+          <tr><td><code class="i">remote: Repository not found</code></td><td>Alias push ke repo yang tidak kamu miliki. Pastikan <code class="i">git remote -v</code> benar.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row"><span class="lab">Kalau tidak ada di daftar</span><p>Jalankan <code class="i">git credential-manager github list</code> untuk melihat akun apa yang sedang tersimpan di komputer ini.</p></div>
   </div>
 </section>
 
 <!-- 7 -->
 <section id="s7">
-  <div class="sh"><span class="num">7</span><h2>Pull request</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 25 menit</span></div>
-  <div class="note info"><strong>Semua lewat AI desktop</strong><p>Commit, push, dan Pull Request dikerjakan lewat <b>OpenCode Desktop</b> atau <b>Freebuff Desktop</b> — seperti meminta asisten untuk menyimpan hasilmu ke repo. Pilih sesuai alat yang kamu pakai di bagian 0.4.</p></div>
-
+  <div class="sh"><span class="num">7</span><h2>Keamanan token</h2></div>
+  <div class="note warn"><strong>Jangan pernah tempel token ke chat AI, repo, atau screenshot.</strong><p>Token adalah kunci pribadimu. Kalau bocor, hapus di <a href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> dan buat token baru.</p></div>
   <div class="step" data-id="7.1">
-    <h3><span class="sn">7.1</span>Siapkan AI desktop untuk GitHub</h3>
-    <div class="hv-freebuff" style="display:grid;gap:12px">
-      <div class="row"><span class="lab">Freebuff</span><p>Buka <b>Integrations</b>, pilih <b>GitHub</b>, lalu <b>Connect</b>. Untuk commit dan push dari komputermu, Freebuff memakai Git dan kredensial yang sudah tersimpan di komputer.</p></div>
-    </div>
-    <div class="hv-opencode" style="display:grid;gap:12px">
-      <div class="row"><span class="lab">OpenCode</span><p>OpenCode Desktop memakai Git dan kredensial di komputermu, jadi tidak ada tombol connect terpisah. Pastikan folder proyek ini adalah folder yang sedang dibuka di OpenCode.</p></div>
-    </div>
-    <div class="row"><span class="lab">Login sekali saja</span><p>Push pertama membuka jendela <b>Git Credential Manager</b>. Pilih <b>Sign in with your browser</b>, setujui akses, lalu kembali. Setelah ini kamu tidak ditanya lagi. Di Mac, gunakan Personal Access Token sebagai password bila diminta.</p></div>
-  </div>
-
-  <div class="step" data-id="7.2">
-    <h3><span class="sn">7.2</span>Cek dulu sebelum minta AI</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Jalankan git status dan git remote -v, lalu jelaskan hasilnya dengan bahasa sederhana. Jangan ubah file apa pun.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>AI menyebut nama branch kerjamu, daftar file yang berubah, dan alamat remote yang menunjuk ke repo milikmu.</p></div>
-  </div>
-
-  <div class="step" data-id="7.3">
-    <h3><span class="sn">7.3</span>Minta AI commit dan push</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Commit semua perubahan dengan pesan "revamp, fix, dan security", lalu push ke branch revamp-<span class="ph" data-k="user">[username GitHub]</span>. Sebelum commit, pastikan .env.local tidak ikut ter-commit. Setelah selesai tampilkan git log --oneline -3.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p><code class="i">git log --oneline -3</code> menampilkan commit barumu, dan branch muncul di repo GitHub-mu.</p></div>
-    <div class="row"><span class="lab">Kebiasaan</span><p>Satu perbaikan selesai, satu commit. Pisahkan revamp, fix, dan security supaya mudah ditinjau.</p></div>
-  </div>
-
-  <div class="step" data-id="7.4">
-    <h3><span class="sn">7.4</span>Minta AI membuat Pull Request</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Buka halaman perbandingan PR di repo ini (base main, compare revamp-<span class="ph" data-k="user">[username GitHub]</span>) di browser. Isi judul "Revamp, fix, dan security" dan deskripsi per Tugas A (revamp, 3 halaman dan alasannya), Tugas B (bug yang dibetulkan dan cara memunculkannya), Tugas C (perbaikan keamanan dan serangan yang dicegah), plus link Vercel. Lalu klik Create pull request dan tunjukkan tautannya.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Pull Request terbuka, tanpa konflik, dan semua commit terlihat di tab <b>Commits</b>.</p></div>
-    <div class="row"><span class="lab">Kalau browser gagal</span><p>Minta AI menampilkan alamat halaman perbandingan itu, lalu buka sendiri di browser dan klik <b>Compare &amp; pull request</b>.</p></div>
-  </div>
-
-  <div class="step" data-id="7.5">
-    <h3><span class="sn">7.5</span>Tulis NOTES.md</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Buat NOTES.md berisi satu paragraf: apa yang sempat rusak saat saya mengerjakan tugas ini, bagaimana saya menemukannya, dan bagaimana saya memperbaikinya. Jujur dan spesifik, sebutkan nama file.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>NOTES.md ada di repo dan isinya bukan kalimat umum seperti "semua berjalan lancar".</p></div>
-    <div class="row"><span class="lab">Jangan</span><p>Jangan pernah menempelkan token atau password ke chat. Kalau AI memintanya, hentikan dan kerjakan sendiri di GitHub.</p></div>
+    <h3><span class="sn">7.1</span>Rotasi token</h3>
+    <div class="row"><span class="lab">Lalu</span><p>Jika kamu memakai PAT dan ragu bocor, hapus token lama, buat token baru, lalu update credential:</p></div>
+    <div class="code cmd"><pre>git credential-manager github login --pat=&lt;TOKEN_BARU&gt;</pre></div>
   </div>
 </section>
 
 <!-- 8 -->
 <section id="s8">
-  <div class="sh"><span class="num">8</span><h2>Deploy ke Vercel</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 20 menit</span></div>
+  <div class="sh"><span class="num">8</span><h2>FAQ</h2></div>
+
   <div class="step" data-id="8.1">
-    <h3><span class="sn">8.1</span>Impor repo</h3>
-    <div class="row"><span class="lab">Langkah</span><p>Di <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a> klik <b>Add New &rarr; Project</b>, pilih repo milikmu (<span class="ph" data-k="user">[username GitHub]</span>/<span class="ph" data-k="folder">[nama-folder]</span>), lalu <b>Import</b>. Biarkan pengaturan framework terdeteksi otomatis sebagai TanStack Start.</p></div>
-    <div class="row"><span class="lab">Kalau repo tidak muncul</span><p>Klik <b>Adjust GitHub App Permissions</b>, izinkan akses ke repo itu, lalu kembali.</p></div>
+    <h3><span class="sn">8.1</span>Tentang repo ini</h3>
+    <div class="row"><span class="lab">Pertanyaan</span><p>Apakah repo template <code class="i">azzeal/tanstack_ekraf</code> itu target tugasku? Tidak. Template ini contoh. Kamu membuat repo baru dari template, jadi tugasmu selalu di repo kamu sendiri.</p></div>
   </div>
-  <div class="step" data-id="8.2">
-    <h3><span class="sn">8.2</span>Isi environment variable</h3>
-    <div class="row"><span class="lab">Langkah</span><p>Sebelum menekan Deploy, buka <b>Environment Variables</b> dan tambahkan dua baris berikut.</p></div>
-    <div class="code cmd"><pre>BETTER_AUTH_URL=https://<span class="ph" data-k="folder">[nama-folder]</span>.vercel.app
-BETTER_AUTH_SECRET=<span class="ph">[kunci baru dari bun x @better-auth/cli secret]</span></pre></div>
-    <div class="row"><span class="lab">Penting</span><p>Jangan memakai kunci yang sama dengan <code class="i">.env.local</code> untuk produksi. Buat kunci baru, simpan di tempat aman, jangan di repo.</p></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Dua variabel itu terdaftar untuk environment Production.</p></div>
-  </div>
-  <div class="step" data-id="8.3">
-    <h3><span class="sn">8.3</span>Deploy dan seed ulang</h3>
-    <div class="row"><span class="lab">Deploy</span><p>Klik <b>Deploy</b> dan tunggu sampai selesai. Catat alamat yang berakhiran <code class="i">.vercel.app</code>, lalu tempel ke kolom <b>Link Vercel</b> di panel "Isi data kamu".</p></div>
-    <div class="row"><span class="lab">Seed</span><p>Buka <code class="i">/setup</code> di alamat produksi dan klik <b>Seed Admin Account</b>, lalu login dengan akun admin yang sama.</p></div>
-    <div class="row"><span class="lab">Ingat</span><p>Data hanya hidup di memori instance. Setiap deploy baru atau instance dingin akan mengosongkannya, jadi seed ulang bila perlu saat demo.</p></div>
-    <div class="row"><span class="lab">Kalau 500</span><p>Buka <b>Deployments &rarr; Functions</b> dan baca lognya. Penyebab tersering: env variable belum terisi atau <code class="i">BETTER_AUTH_URL</code> masih menunjuk ke localhost.</p></div>
+
+  <div style="display:none">
+    <textarea id="plan" class="plan" aria-label="Isi Rencana"></textarea>
+    <button type="button" class="btn primary" id="planCopy">Salin dengan kalimat pembuka</button>
+    <button type="button" class="btn" id="planReset">Kembalikan template</button>
+    <span class="planstat" id="planStat"></span>
   </div>
 </section>
-
-<!-- 9 -->
-<section id="s9">
-  <div class="sh"><span class="num">9</span><h2>Kumpulkan dan nilai</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 15 menit</span></div>
-  <div class="step" data-id="9.1">
-    <h3><span class="sn">9.1</span>Periksa sebelum mengumpulkan</h3>
-    <ul class="clean">
-      <li><code class="i">bun run build</code> bersih, <code class="i">bun run lint</code> tidak menambah error baru.</li>
-      <li>Tiga halaman sudah dirapikan dan nyaman di lebar HP.</li>
-      <li>Semua route di langkah 5.4 sudah diuji sendiri.</li>
-      <li>Minimal dua perbaikan keamanan, satu dari tiap kolom, dengan penjelasan.</li>
-      <li>Pull Request terbuka dan link Vercel bisa dibuka di jendela penyamaran.</li>
-      <li>Klon segar dari repo, <code class="i">bun install</code>, <code class="i">/setup</code>, sampai login berhasil tanpa cacat.</li>
-      <li>Tidak ada <code class="i">.env.local</code> atau kunci rahasia di repo.</li>
-      <li><code class="i">RENCANA.md</code>, <code class="i">PROMPT-LOG.md</code>, <code class="i">SECURITY-NOTES.md</code>, dan <code class="i">NOTES.md</code> ada di repo.</li>
-    </ul>
-  </div>
-  <div class="step" data-id="9.2">
-    <h3><span class="sn">9.2</span>Salin ringkasan dan kirim</h3>
-    <div class="row"><span class="lab">Ringkasan</span><div class="code"><pre>Nama: <span class="ph" data-k="nama">[nama kamu]</span>
-Brand: <span class="ph" data-k="usaha">[nama brand EKRAF]</span>
-Repo: https://github.com/<span class="ph" data-k="user">[username GitHub]</span>/<span class="ph" data-k="folder">[nama-folder]</span>
-Pull Request: [link PR]
-Website: <span class="ph" data-k="vercel">[link Vercel]</span>
-Keamanan yang saya perbaiki: [2 poin]</pre></div></div>
-    <div class="row"><span class="lab">Kirim</span><p>Kumpulkan sebelum <span class="ph">[jam]</span> lewat <span class="ph">[kanal pengumpulan]</span>.</p></div>
-  </div>
-  <div class="step" data-id="9.3">
-    <h3><span class="sn">9.3</span>Siapkan demo 3 menit</h3>
-    <p>Perlihatkan satu halaman sebelum dan sesudah revamp, satu bug yang kamu betulkan beserta cara memunculkannya, dan satu perbaikan keamanan beserta serangan yang dicegah.</p>
-  </div>
-
-  <h3 style="font-size:22px;font-weight:600;margin-top:6px">Cara penilaian</h3>
-  <div class="tw"><table>
-    <thead><tr><th>Kriteria</th><th class="pt">Bobot</th><th>Yang dilihat</th></tr></thead>
-    <tbody>
-      <tr><td>Revamp tampilan</td><td class="pt">30%</td><td>Kualitas visual, responsif, keadaan memuat, kosong, dan gagal</td></tr>
-      <tr><td>Perbaikan bug</td><td class="pt">25%</td><td>Lint dan build bersih, semua route bekerja</td></tr>
-      <tr><td>Keamanan</td><td class="pt">35%</td><td>Ditempatkan di server dan alasannya dijelaskan</td></tr>
-      <tr><td>Laporan dan kerapian</td><td class="pt">10%</td><td>NOTES.md, SECURITY-NOTES.md, riwayat commit</td></tr>
-      <tr class="total"><td>Total</td><td class="pt">100%</td><td></td></tr>
-    </tbody>
-  </table></div>
-  <div class="note tip"><strong>Yang dinilai</strong><p>Kejelasan alasan dan bukti pengujian, bukan jumlah kode yang diubah. Perbaikan kecil yang kamu pahami lebih bernilai daripada revamp besar yang tidak bisa kamu jelaskan.</p></div>
-</section>
-
-<!-- 10 -->
-<section id="s10">
-  <div class="sh"><span class="num">10</span><h2>FAQ</h2></div>
-  <p class="intro">Tempel pesan error apa adanya ke AI, itu petunjuk terbaiknya. Kalau buntu lebih dari 10 menit, angkat tangan dan panggil fasilitator.</p>
-  <div class="faq">
-    <details class="dd only-win"><summary>"Windows protected your PC" saat membuka pemasang</summary><div class="in"><p>Peringatan standar Windows untuk aplikasi baru. Kalau file itu kamu unduh dari situs resmi di panduan ini, klik <b>More info</b>, lalu <b>Run anyway</b>.</p></div></details>
-    <details class="dd only-mac"><summary>Aplikasi "tidak bisa dibuka karena dari developer yang tidak dikenal" (Mac)</summary><div class="in"><p>Klik kanan ikon aplikasinya di folder Applications, pilih <b>Open</b>, lalu <b>Open</b> sekali lagi.</p></div></details>
-    <details class="dd"><summary>bun: command not found</summary><div class="in"><p>Bun sudah terpasang tetapi Terminal belum mengenalnya. Tutup Terminal atau PowerShell, buka lagi, lalu jalankan <code class="i">bun --version</code>. Kalau tetap gagal, pasang ulang Bun dan pastikan folder <code class="i">.bun/bin</code> masuk PATH.</p></div></details>
-    <details class="dd"><summary>Aplikasi menolak login, muncul INVALID_ORIGIN</summary><div class="in"><p>Alamat di <code class="i">BETTER_AUTH_URL</code> tidak sama dengan alamat yang kamu buka. Kalau membuka <code class="i">127.0.0.1</code>, ganti isinya ke <code class="i">http://localhost:3000</code>, atau sebaliknya. Di produksi, isinya harus alamat <code class="i">.vercel.app</code> yang sebenarnya.</p></div></details>
-    <details class="dd"><summary>Error "Invalid secret" atau sesi langsung hilang</summary><div class="in"><p><code class="i">BETTER_AUTH_SECRET</code> kosong atau berubah. Buat kunci baru dengan <code class="i">bun x @better-auth/cli secret</code>, isi ulang <code class="i">.env.local</code>, lalu hentikan dan jalankan lagi <code class="i">bun dev</code>.</p></div></details>
-    <details class="dd"><summary>Halaman baru tidak muncul, atau muncul error routeTree</summary><div class="in"><div class="code"><pre>bunx tsr generate</pre></div><p>Setelah itu hentikan dan jalankan lagi <code class="i">bun dev</code>. File <code class="i">routeTree.gen.ts</code> memang dibuat otomatis, jangan diedit manual.</p></div></details>
-    <details class="dd"><summary>Kolom form tetap tidak bisa diketik</summary><div class="in"><p>Pastikan nilai input memakai <code class="i">field.state.value</code> dan <code class="i">onChange</code> memanggil <code class="i">field.handleChange</code>. Kalau modal memakai <code class="i">key</code> yang berubah tiap render, form akan ter-mount ulang dan ketikan hilang.</p><div class="code"><pre>Tunjukkan bagian ProductForm.tsx yang mengatur value dan onChange untuk kolom nama, lalu jelaskan kenapa ketikan bisa hilang di proyek ini.</pre></div></div></details>
-    <details class="dd"><summary>Port 3000 sudah dipakai</summary><div class="in"><p>Hentikan proses lain dengan <b>Ctrl+C</b> di terminal yang menjalankan aplikasi. Kalau masih dipakai, jalankan dengan port lain, misalnya <code class="i">bun dev --port 3001</code>, lalu sesuaikan <code class="i">BETTER_AUTH_URL</code>.</p></div></details>
-    <details class="dd"><summary>Data hilang setiap restart</summary><div class="in"><p>Itu memang rancangan proyek ini: tidak ada database, data hidup di memori. Jalankan <code class="i">/setup</code> lagi setelah restart atau deploy. Jangan menambahkan database kecuali diminta.</p></div></details>
-    <details class="dd"><summary>Vercel menampilkan 500 setelah deploy</summary><div class="in"><p>Buka <b>Deployments &rarr; Functions &rarr; Logs</b>. Penyebab tersering: environment variable belum diisi, <code class="i">BETTER_AUTH_URL</code> masih localhost, atau build gagal karena lint.</p></div></details>
-    <details class="dd"><summary>AI merusak hasil yang tadinya bagus</summary><div class="in"><p>Batalkan semua perubahan yang belum di-commit dengan perintah di bawah. Perubahan yang sudah ter-commit tetap aman.</p><div class="code cmd"><pre>git restore .</pre></div></div></details>
-    <details class="dd"><summary>Push meminta login atau muncul "Authentication failed"</summary><div class="in"><p>Jendela <b>Git Credential Manager</b> terbuka saat push pertama. Pilih <b>Sign in with your browser</b> dan setujui akses. Kalau jendelanya tidak muncul, jalankan <code class="i">git credential-manager configure</code> lalu push lagi. Di Mac, gunakan Personal Access Token sebagai password bila diminta.</p></div></details>
-    <details class="dd"><summary>Perubahan saya tidak muncul di Pull Request</summary><div class="in"><p>Kamu mungkin commit di branch lain. Jalankan <code class="i">git branch --show-current</code>, pastikan hasilnya branch kerja yang benar, lalu push lagi. Bandingkan juga dengan tab Commits di halaman PR.</p></div></details>
-  </div>
-</section>
-
-<!-- 11 -->
-<section id="s11">
-  <div class="sh"><span class="num">11</span><h2>Istilah</h2></div>
-  <div class="gloss">
-    <div><b>TanStack Start</b><span>Kerangka kerja React yang menggabungkan routing, data, dan server function dalam satu proyek.</span></div>
-    <div><b>Route</b><span>Halaman. Di proyek ini, satu file di <code class="i">src/routes</code> menjadi satu halaman.</span></div>
-    <div><b>Server function</b><span>Fungsi yang hanya berjalan di server. Dipakai untuk membaca dan mengubah data.</span></div>
-    <div><b>Better Auth</b><span>Pustaka autentikasi: akun, sesi, dan cookie login.</span></div>
-    <div><b>Session</b><span>Bukti bahwa kamu sudah login, disimpan di cookie.</span></div>
-    <div><b>Role</b><span>Peran pengguna, di sini <code class="i">admin</code> dan <code class="i">user</code>.</span></div>
-    <div><b>Zod</b><span>Pustaka untuk memeriksa bentuk data, dipakai di server dan form.</span></div>
-    <div><b>shadcn</b><span>Kumpulan komponen tampilan siap pakai di <code class="i">src/components/ui</code>.</span></div>
-    <div><b>Biome</b><span>Alat pemeriksa dan perapi kode. Perintahnya <code class="i">bun run lint</code>.</span></div>
-    <div><b>Migration</b><span>Perubahan struktur database. Proyek ini tidak memakainya karena tanpa database.</span></div>
-    <div><b>Pull Request</b><span>Permintaan menggabungkan branch kerjamu ke branch utama, lengkap dengan diskusi.</span></div>
-    <div><b>Environment variable</b><span>Nilai rahasia di luar kode, misalnya kunci sesi. Di lokal disimpan di <code class="i">.env.local</code>.</span></div>
-    <div><b>Deploy</b><span>Menayangkan aplikasi agar bisa dibuka lewat internet.</span></div>
-    <div><b>Commit</b><span>Satu titik simpan di riwayat proyek, lengkap dengan pesan singkat.</span></div>
-    <div><b>Remote</b><span>Alamat repo GitHub yang tersimpan di folder proyekmu, biasanya bernama <code class="i">origin</code>.</span></div>
-    <div><b>Git Credential Manager</b><span>Aplikasi bawaan Git untuk Windows yang menyimpan login GitHub-mu, jadi tidak perlu mengetik password tiap push.</span></div>
-  </div>
-  <footer>Panduan Lab TanStack EKRAF. Berdasarkan contoh repo tanstack_ekraf. Progres dan data yang kamu isi hanya tersimpan di browser ini.</footer>
-</section>
-
 </main>
 
 <aside class="rail" aria-label="Progres kamu">
