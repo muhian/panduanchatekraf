@@ -272,7 +272,7 @@ html{scroll-behavior:smooth}
   </div>
   <div class="term" aria-label="Gambaran alur kerja">
     <div class="term-bar"><i></i><i></i><i></i><span>alur kerja</span></div>
-<pre class="term-body"><span class="tl l1"><span class="dim">1</span>  install git + bun</span>
+<pre class="term-body"><span class="tl l1"><span class="dim">1</span>  install git</span>
 <span class="tl l2"><span class="dim">2</span>  buat akun + repo</span>
 <span class="tl l3"><span class="dim">3</span>  login github (device flow)</span>
 <span class="tl l4"><span class="dim">4</span>  clone + commit + push</span><span class="caret"></span></pre>
@@ -315,7 +315,7 @@ html{scroll-behavior:smooth}
 <!-- 0 -->
 <section id="s0">
   <div class="sh"><span class="num">0</span><h2>Sebelum datang</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Malam sebelumnya, sekitar 45 menit</span></div>
-  <div class="note warn"><strong>Kerjakan bagian ini sebelum hari workshop</strong><p>Memasang Git, Bun, dan aplikasi AI butuh unduhan besar. Kalau ditunda ke hari H, waktu kelas habis untuk instalasi.</p></div>
+  <div class="note warn"><strong>Kerjakan bagian ini sebelum hari workshop</strong><p>Memasang Git dan aplikasi AI butuh unduhan besar. Kalau ditunda ke hari H, waktu kelas habis untuk instalasi.</p></div>
   <div class="chips"><span class="chip">Laptop Windows atau Mac</span><span class="chip">Boleh memasang aplikasi</span><span class="chip">Koneksi internet</span><span class="chip">Charger</span></div>
   <div class="pick">
     <h3>Pilih alat AI kamu</h3>
@@ -343,20 +343,7 @@ html{scroll-behavior:smooth}
     <div class="row"><span class="lab">Berhasil kalau</span><p><code class="i">git --version</code> menampilkan nomor versi. Login GitHub tidak diminta sekarang; jendela login muncul sendiri saat push pertama.</p></div>
   </div>
   <div class="step" data-id="0.3">
-    <h3><span class="sn">0.3</span>Pasang Bun</h3>
-    <div class="only-win" style="display:grid;gap:12px">
-      <div class="row"><span class="lab">Langkah</span><p>Buka <b>PowerShell</b> (cari di menu Start), tempel perintah di bawah, lalu tekan Enter. Tunggu sampai selesai.</p></div>
-      <div class="code cmd"><pre>irm bun.sh/install.ps1 | iex</pre></div>
-      <div class="row"><span class="lab">Kalau diblokir</span><p>Muncul pesan kebijakan eksekusi? Jalankan <code class="i">Set-ExecutionPolicy -Scope CurrentUser RemoteSigned</code>, jawab <b>Y</b>, lalu ulangi perintah di atas.</p></div>
-    </div>
-    <div class="only-mac" style="display:grid;gap:12px">
-      <div class="row"><span class="lab">Langkah</span><p>Buka <b>Terminal</b> dan jalankan perintah di bawah, lalu tekan Enter.</p></div>
-      <div class="code cmd"><pre>curl -fsSL https://bun.sh/install | bash</pre></div>
-    </div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Tutup lalu buka lagi Terminal atau PowerShell, jalankan <code class="i">bun --version</code>, dan muncul nomor versi.</p></div>
-  </div>
-  <div class="step" data-id="0.4">
-    <h3><span class="sn">0.4</span>Pasang editor dan alat AI</h3>
+    <h3><span class="sn">0.3</span>Pasang editor dan alat AI</h3>
     <div class="row"><span class="lab">Editor</span><p>Pasang <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Visual Studio Code</a>. Kamu akan sering melihat file yang diubah AI di sini.</p></div>
     <div class="hv-freebuff" style="display:grid;gap:12px">
       <div class="row"><span class="lab">Alat AI</span><p>Buka <a href="https://freebuff.com/desktop" target="_blank" rel="noopener">freebuff.com/desktop</a>, unduh versi untuk komputermu, lalu pasang.</p></div>
@@ -394,8 +381,7 @@ html{scroll-behavior:smooth}
   </div>
 
   <div class="step" data-id="2.2">
-    <h3><span class="sn">2.2</span>Buat repo baru (dari template)</h3>
-    <div class="row"><span class="lab">Pakai template</span><p>Buka <a href="https://github.com/azzeal/tanstack_ekraf" target="_blank" rel="noopener">github.com/azzeal/tanstack_ekraf</a>, klik <b>Use this template</b> &rarr; <b>Create a new repository</b>. Ini membuat repo baru milikmu, bukan fork, jadi riwayatnya bersih.</p></div>
+    <h3><span class="sn">2.2</span>Buat repo baru</h3>
     <div class="row"><span class="lab">Isi form</span><p>Nama repo <span class="ph" data-k="folder">[nama-folder]</span>, pilih <b>Public</b>, lalu klik <b>Create repository</b>. Nama repo sebaiknya huruf kecil tanpa spasi (contoh: <code class="i">dashboard-kopi-nusa</code>).</p></div>
     <div class="row"><span class="lab">Berhasil kalau</span><p>Halaman repo barumu terbuka, alamatnya <code class="i">github.com/<span class="ph" data-k="user">[username]</span>/<span class="ph" data-k="folder">[nama-folder]</span></code>.</p></div>
   </div>
@@ -562,7 +548,7 @@ git push -u origin revamp-<span class="ph" data-k="user">[username]</span></pre>
 
   <div class="step" data-id="8.1">
     <h3><span class="sn">8.1</span>Tentang repo ini</h3>
-    <div class="row"><span class="lab">Pertanyaan</span><p>Apakah repo template <code class="i">azzeal/tanstack_ekraf</code> itu target tugasku? Tidak. Template ini contoh. Kamu membuat repo baru dari template, jadi tugasmu selalu di repo kamu sendiri.</p></div>
+    <div class="row"><span class="lab">Pertanyaan</span><p>Apakah push ke repo saya perlu autentikasi? Ya. Git akan memakai Git Credential Manager yang sudah terpasang; kalau belum login, push akan membuka jendela login.</p></div>
   </div>
 
   <div style="display:none">
