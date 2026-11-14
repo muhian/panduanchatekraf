@@ -446,37 +446,27 @@ git config --global --get credential.helper</pre></div>
     <h3><span class="sn">4.2</span>Opsi A — Device flow (disarankan)</h3>
     <div class="row"><span class="lab">Perintah</span><p>Jalankan di PowerShell/Terminal:</p><div class="code cmd"><pre>git credential-manager github login --device</pre></div></div>
     <div class="row"><span class="lab">Yang terjadi</span><p>Terminal menampilkan kode (mis. <code class="i">ABCD-1234</code>) dan alamat <code class="i">https://github.com/login/device</code>. Buka alamat itu di browser, masuk ke akun GitHubmu, masukkan kode. Setelah "Authorized", terminal selesai dengan sendirinya.</p></div>
-    <div class="row"><span class="lab">Kalau --device tidak jalan</span><p>Coba tambahkan <code class="i">--no-ui</code>: <code class="i">git credential-manager github login --device --no-ui</code>. Atau pakai Opsi B.</p></div>
+    <div class="row"><span class="lab">Kalau --device tidak jalan</span><p>Coba tambahkan <code class="i">--no-ui</code>: <code class="i">git credential-manager github login --device --no-ui</code>.</p></div>
     <div class="row"><span class="lab">Berhasil kalau</span><p>Perintah selesai tanpa error, dan <code class="i">git credential-manager github list</code> menampilkan username GitHubmu.</p></div>
   </div>
 
   <div class="step" data-id="4.3">
-    <h3><span class="sn">4.3</span>Opsi B — Personal Access Token (PAT)</h3>
-    <div class="row"><span class="lab">Buat token</span><p>Buka <a href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> &rarr; <b>Generate new token</b> &rarr; <b>Generate new token (classic)</b>. Beri nama, pilih masa berlaku, centang scope <b>repo</b>, lalu <b>Generate token</b>. <b>Salin token sekarang</b> (hanya tampil sekali).</p></div>
-    <div class="row"><span class="lab">Perintah</span><p>Ganti <code class="i">&lt;TOKEN&gt;</code> dengan token yang kamu salin (tempel langsung, tanpa tanda kurung):</p></div>
-    <div class="code cmd"><pre>git credential-manager github login --pat=&lt;TOKEN&gt;</pre></div>
-    <div class="row"><span class="lab">Keamanan</span><p>Jangan tempel token ke chat AI atau GitHub issue. Token yang bocor = siapa pun bisa mengakses repomu. Kalau bocor, hapus token di settings dan buat baru.</p></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p><code class="i">git credential-manager github list</code> menampilkan username GitHubmu.</p></div>
-  </div>
-
-  <div class="step" data-id="4.4">
-    <h3><span class="sn">4.4</span>Cek akun tersimpan</h3>
+    <h3><span class="sn">4.3</span>Cek akun tersimpan</h3>
     <div class="code cmd"><pre>git credential-manager github list</pre></div>
     <div class="row"><span class="lab">Berhasil kalau</span><p>Daftar akun tersimpan muncul. Dengan Opsi A, itu nama akunmu (mis. <span class="ph" data-k="user">muhian</span>). Untuk memakai akun lain, logout lalu login lagi.</p></div>
   </div>
 
-  <div class="step" data-id="4.5">
-    <h3><span class="sn">4.5</span>Ganti akun / logout</h3>
+  <div class="step" data-id="4.4">
+    <h3><span class="sn">4.4</span>Ganti akun / logout</h3>
     <div class="code cmd"><pre>git credential-manager github logout &lt;username&gt;</pre></div>
     <div class="row"><span class="lab">Catatan</span><p>Logout membuang credential akun itu dari komputer ini. Setelah logout, akun tidak bisa dipakai sampai login lagi.</p></div>
   </div>
 </section>
 
 <!-- 5 -->
-<!-- 5 -->
 <section id="s5">
   <div class="sh"><span class="num">5</span><h2>Buka repo dan minta AI siap pakai Git</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 10 menit</span></div>
-  <p class="intro">Dengan Git + credential helper terautentikasi (bab 4), OpenCode/Freebuff bisa mengurus git untukmu. Kamu tidak perlu ketik perintah git yang membingungkan â€” cukup beri AI satu prompt.</p>
+  <p class="intro">Dengan Git + credential helper terautentikasi (bab 4), OpenCode/Freebuff bisa mengurus git untukmu. Kamu tidak perlu ketik perintah git yang membingungkan, cukup beri AI satu prompt.</p>
 
   <div class="step" data-id="5.1">
     <h3><span class="sn">5.1</span>Beri AI daftar isi repo</h3>
@@ -518,46 +508,18 @@ git config --global --get credential.helper</pre></div>
   </div>
 </section>
 
-<!-- 7 -->
-<section id="s7">
-  <div class="sh"><span class="num">7</span><h2>Keamanan token</h2></div>
-  <div class="note warn"><strong>Jangan pernah tempel token ke chat AI, repo, atau screenshot.</strong><p>Token adalah kunci pribadimu. Kalau bocor, hapus di <a href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> dan buat token baru.</p></div>
-  <div class="step" data-id="7.1">
-    <h3><span class="sn">7.1</span>Rotasi token</h3>
-    <div class="row"><span class="lab">Lalu</span><p>Jika kamu memakai PAT dan ragu bocor, hapus token lama, buat token baru, lalu update credential:</p></div>
-    <div class="code cmd"><pre>git credential-manager github login --pat=&lt;TOKEN_BARU&gt;</pre></div>
-  </div>
-</section>
-
-<!-- 8 -->
-<section id="s8">
-  <div class="sh"><span class="num">8</span><h2>FAQ</h2></div>
-
-  <div class="step" data-id="8.1">
-    <h3><span class="sn">8.1</span>Tentang repo ini</h3>
-    <div class="row"><span class="lab">Pertanyaan</span><p>Apakah push ke repo saya perlu autentikasi? Ya. Git akan memakai Git Credential Manager yang sudah terpasang; kalau belum login, push akan membuka jendela login.</p></div>
-  </div>
-
-  <div style="display:none">
-    <textarea id="plan" class="plan" aria-label="Isi Rencana"></textarea>
-    <button type="button" class="btn primary" id="planCopy">Salin dengan kalimat pembuka</button>
-    <button type="button" class="btn" id="planReset">Kembalikan template</button>
-    <span class="planstat" id="planStat"></span>
-  </div>
-</section>
-
 <!-- 9 -->
-<section id="s9">
-  <div class="sh"><span class="num">9</span><h2>Deploy ke Vercel</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 20 menit</span></div>
+<section id="s8">
+  <div class="sh"><span class="num">8</span><h2>Deploy ke Vercel</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 20 menit</span></div>
   <p class="intro">Panduan deploy dari repo GitHub ke Vercel untuk aplikasi Web UMKM ini.</p>
 
-  <div class="step" data-id="9.1">
+  <div class="step" data-id="8.1">
     <h3><span class="sn">9.1</span>Deploy dari repo GitHub</h3>
     <div class="row"><span class="lab">Langkah</span><p>Buka <a href="https://vercel.com/new" target="_blank" rel="noopener">vercel.com/new</a>, klik <b>Import GitHub</b>, pilih repo <code class="i">muhian/tesekraf</code>, lalu klik <b>Deploy</b>.</p></div>
     <div class="row"><span class="lab">Catatan</span><p>Pastikan branch <code class="i">main</code> sudah ada dan berisi kode aplikasi sesuai panduan.</p></div>
   </div>
 
-  <div class="step" data-id="9.2">
+  <div class="step" data-id="8.2">
     <h3><span class="sn">9.2</span>Isi environment variable</h3>
     <div class="row"><span class="lab">Langkah</span><p>Sebelum deploy, buka <b>Settings</b> → <b>Environment Variables</b> di Vercel, lalu tambahkan:</p></div>
     <div class="code cmd"><pre>BETTER_AUTH_URL=https://[nama-folder].vercel.app
@@ -565,7 +527,7 @@ BETTER_AUTH_SECRET=[kunci baru dari bun x @better-auth/cli secret]</pre></div>
     <div class="row"><span class="lab">Catatan</span><p>Jangan pakai kunci yang sama dengan <code class="i">.env.local</code> untuk produksi.</p></div>
   </div>
 
-  <div class="step" data-id="9.3">
+  <div class="step" data-id="8.3">
     <h3><span class="sn">9.3</span>Selesai dan dapat URL</h3>
     <div class="row"><span class="lab">Berhasil kalau</span><p>Deploy selesai, dan URL <code class="i">https://[nama-folder].vercel.app</code> terbuka dan aplikasi jalan.</p></div>
   </div>
