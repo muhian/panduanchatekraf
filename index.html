@@ -471,7 +471,7 @@ git config --global --get credential.helper</pre></div>
 
   <div class="step" data-id="5.1">
     <h3><span class="sn">5.1</span>Beri AI daftar isi repo</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Buka repo https://github.com/muhian/tesekraf/tree/parfumku_web, lalu buat branch baru di dalamnya.</pre></div></div>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Buka repo https://github.com/muhian/tesekraf, lalu buat branch baru di dalamnya.</pre></div></div>
     <div class="row"><span class="lab">Berhasil kalau</span><p>AI selesai memproses repo, dan di browser kamu bisa melihat branch baru di repo GitHub kamu.</p></div>
   </div>
 
@@ -512,7 +512,7 @@ git config --global --get credential.helper</pre></div>
 <!-- 7 -->
 <section id="s7">
   <div class="sh"><span class="num">7</span><h2>Deploy ke Vercel</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 20 menit</span></div>
-  <p class="intro">Panduan deploy dari repo GitHub ke Vercel untuk aplikasi Web UMKM ini.</p>
+  <p class="intro">Panduan deploy dari repo GitHub ke Vercel untuk website UMKM ini. Situsnya statis, jadi cukup import lalu deploy.</p>
 
   <div class="step" data-id="7.1">
     <h3><span class="sn">7.1</span>Deploy dari repo GitHub</h3>
@@ -521,16 +521,9 @@ git config --global --get credential.helper</pre></div>
   </div>
 
   <div class="step" data-id="7.2">
-    <h3><span class="sn">7.2</span>Isi environment variable</h3>
-    <div class="row"><span class="lab">Langkah</span><p>Sebelum deploy, buka <b>Settings</b> → <b>Environment Variables</b> di Vercel, lalu tambahkan:</p></div>
-    <div class="code cmd"><pre>BETTER_AUTH_URL=https://[nama-folder].vercel.app
-BETTER_AUTH_SECRET=[kunci baru dari bun x @better-auth/cli secret]</pre></div>
-    <div class="row"><span class="lab">Catatan</span><p>Jangan pakai kunci yang sama dengan <code class="i">.env.local</code> untuk produksi.</p></div>
-  </div>
-
-  <div class="step" data-id="7.3">
-    <h3><span class="sn">7.3</span>Selesai dan dapat URL</h3>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Deploy selesai, dan URL <code class="i">https://[nama-folder].vercel.app</code> terbuka dan aplikasi jalan.</p></div>
+    <h3><span class="sn">7.2</span>Selesai dan dapat URL</h3>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Deploy selesai, dan URL <code class="i">https://[nama-folder].vercel.app</code> terbuka dan web tampil normal.</p></div>
+    <div class="row"><span class="lab">Catatan</span><p>Website ini statis (HTML, CSS, JS), jadi tidak perlu build command atau environment variable. Contoh hasil deploy: <a href="https://tesekraf.vercel.app/" target="_blank" rel="noopener">tesekraf.vercel.app</a>.</p></div>
   </div>
 </section>
 
@@ -546,12 +539,12 @@ BETTER_AUTH_SECRET=[kunci baru dari bun x @better-auth/cli secret]</pre></div>
 
   <div class="step" data-id="8.2">
     <h3><span class="sn">8.2</span>Isi link repository</h3>
-    <div class="row"><span class="lab">Isi</span><p>Alamat repo GitHub kamu, contoh: <code class="i">https://github.com/[username]/[nama-folder]</code></p></div>
+    <div class="row"><span class="lab">Isi</span><p>Alamat repo GitHub kamu, contoh: <code class="i">https://github.com/muhian/tesekraf</code></p></div>
   </div>
 
   <div class="step" data-id="8.3">
     <h3><span class="sn">8.3</span>Isi link produk</h3>
-    <div class="row"><span class="lab">Isi</span><p>URL hasil deploy dari Vercel, contoh: <code class="i">https://[nama-folder].vercel.app</code></p></div>
+    <div class="row"><span class="lab">Isi</span><p>URL hasil deploy dari Vercel, contoh: <code class="i">https://tesekraf.vercel.app</code></p></div>
   </div>
 
   <div class="step" data-id="8.4">
