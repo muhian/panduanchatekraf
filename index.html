@@ -661,21 +661,22 @@ BETTER_AUTH_SECRET=[kunci baru dari bun x @better-auth/cli secret]</pre></div>
     planStat.textContent=left?('Masih ada '+left+' bagian [ ] yang perlu diisi'):'Semua bagian sudah terisi';
     planStat.classList.toggle('ok',!left);
   }
-  var savedPlan=lsGet('tekraf-plan');
-  plan.value=(savedPlan&&savedPlan.length)?savedPlan:planDefault();
-  planState();
-  plan.addEventListener('input',function(){lsSet('tekraf-plan',plan.value);planState()});
-  var pc=document.getElementById('planCopy');
-  pc.addEventListener('click',function(){copyText(PREFIX+plan.value,function(){plan.focus();plan.select()},pc,'Salin dengan kalimat pembuka')});
-  var pr=document.getElementById('planReset'),prt=null;
-  pr.addEventListener('click',function(){
-    if(pr.getAttribute('data-arm')==='1'){
-      plan.value=planDefault();lsSet('tekraf-plan',plan.value);planState();pr.removeAttribute('data-arm');pr.textContent='Kembalikan template';clearTimeout(prt);
-    }else{
-      pr.setAttribute('data-arm','1');pr.textContent='Tulisanmu akan hilang. Klik lagi';
-      prt=setTimeout(function(){pr.removeAttribute('data-arm');pr.textContent='Kembalikan template'},3000);
-    }
-  });
+    if(plan&&planStat){
+    var pc=document.getElementById('planCopy'),pr=document.getElementById('planReset'),prt=null;
+    var savedPlan=lsGet('tekraf-plan');
+    plan.value=(savedPlan&&savedPlan.length)?savedPlan:planDefault();
+    planState();
+    plan.addEventListener('input',function(){lsSet('tekraf-plan',plan.value);planState()});
+    if(pc)pc.addEventListener('click',function(){copyText(PREFIX+plan.value,function(){plan.focus();plan.select()},pc,'Salin dengan kalimat pembuka')});
+    if(pr)pr.addEventListener('click',function(){
+      if(pr.getAttribute('data-arm')==='1'){
+        plan.value=planDefault();lsSet('tekraf-plan',plan.value);planState();pr.removeAttribute('data-arm');pr.textContent='Kembalikan template';clearTimeout(prt);
+      }else{
+        pr.setAttribute('data-arm','1');pr.textContent='Tulisanmu akan hilang. Klik lagi';
+        prt=setTimeout(function(){pr.removeAttribute('data-arm');pr.textContent='Kembalikan template'},3000);
+      }
+    });
+  }
 
   /* steps */
   var steps=[].slice.call(document.querySelectorAll('.step[data-id]'));
