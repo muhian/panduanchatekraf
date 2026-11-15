@@ -275,7 +275,7 @@ html{scroll-behavior:smooth}
 <pre class="term-body"><span class="tl l1"><span class="dim">1</span>  install git</span>
 <span class="tl l2"><span class="dim">2</span>  buat akun + repo</span>
 <span class="tl l3"><span class="dim">3</span>  login github (device flow)</span>
-<span class="tl l4"><span class="dim">4</span>  clone + commit + push</span><span class="caret"></span></pre>
+<span class="tl l4"><span class="dim">4</span>  minta AI commit + push</span><span class="caret"></span></pre>
   </div>
 </header>
 
@@ -284,7 +284,9 @@ html{scroll-behavior:smooth}
   <a href="#s3"><b>3</b>Install Git &amp; konfigurasi</a><span class="sep">&rarr;</span>
   <a href="#s4"><b>4</b>Autentikasi GitHub</a><span class="sep">&rarr;</span>
   <a href="#s5"><b>5</b>Buka repo &amp; AI</a><span class="sep">&rarr;</span>
-  <a href="#s6"><b>6</b>Troubleshooting</a>
+  <a href="#s6"><b>6</b>Troubleshooting</a><span class="sep">&rarr;</span>
+  <a href="#s7"><b>7</b>Deploy ke Vercel</a><span class="sep">&rarr;</span>
+  <a href="#s8"><b>8</b>Kumpulkan link</a>
 </div>
 
 <details class="me">
@@ -305,11 +307,10 @@ html{scroll-behavior:smooth}
   <a href="#s2"><b>2</b><span>Buat repo dan GitHub</span></a>
   <a href="#s3"><b>3</b><span>Install Git dan konfigurasi</span></a>
   <a href="#s4"><b>4</b><span>Autentikasi GitHub</span></a>
-  <a href="#s5"><b>5</b><span>Clone, commit, push</span></a>
+  <a href="#s5"><b>5</b><span>Buka repo &amp; AI</span></a>
   <a href="#s6"><b>6</b><span>Troubleshooting</span></a>
-  <a href="#s7"><b>7</b><span>Keamanan token</span></a>
-  <a href="#s8"><b>8</b><span>FAQ</span></a>
-  <a href="#s9"><b>9</b><span>Deploy ke Vercel</span></a>
+  <a href="#s7"><b>7</b><span>Deploy ke Vercel</span></a>
+  <a href="#s8"><b>8</b><span>Kumpulkan link</span></a>
 </nav>
 
 <main>
@@ -353,7 +354,7 @@ html{scroll-behavior:smooth}
       <div class="row"><span class="lab">Alat AI</span><p>Buka <a href="https://opencode.ai/download" target="_blank" rel="noopener">opencode.ai/download</a>, unduh aplikasi desktop, lalu pasang.</p></div>
     </div>
     <div class="row"><span class="lab">Berhasil kalau</span><p>Aplikasi alat AI terbuka dan menampilkan layar awal.</p></div>
-    <div class="row"><span class="lab">Kalau gagal</span><p>Peringatan keamanan saat membuka aplikasi? Lihat bagian FAQ. Kalau tetap tidak jalan, ganti alat AI lewat tombol kanan bawah.</p></div>
+    <div class="row"><span class="lab">Kalau gagal</span><p>Peringatan keamanan saat membuka aplikasi? Lihat bagian Troubleshooting. Kalau tetap tidak jalan, ganti alat AI lewat tombol kanan bawah.</p></div>
   </div>
 </section>
 
@@ -508,28 +509,54 @@ git config --global --get credential.helper</pre></div>
   </div>
 </section>
 
-<!-- 9 -->
-<section id="s8">
-  <div class="sh"><span class="num">8</span><h2>Deploy ke Vercel</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 20 menit</span></div>
+<!-- 7 -->
+<section id="s7">
+  <div class="sh"><span class="num">7</span><h2>Deploy ke Vercel</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 20 menit</span></div>
   <p class="intro">Panduan deploy dari repo GitHub ke Vercel untuk aplikasi Web UMKM ini.</p>
 
-  <div class="step" data-id="8.1">
-    <h3><span class="sn">9.1</span>Deploy dari repo GitHub</h3>
+  <div class="step" data-id="7.1">
+    <h3><span class="sn">7.1</span>Deploy dari repo GitHub</h3>
     <div class="row"><span class="lab">Langkah</span><p>Buka <a href="https://vercel.com/new" target="_blank" rel="noopener">vercel.com/new</a>, klik <b>Import GitHub</b>, pilih repo <code class="i">muhian/tesekraf</code>, lalu klik <b>Deploy</b>.</p></div>
     <div class="row"><span class="lab">Catatan</span><p>Pastikan branch <code class="i">main</code> sudah ada dan berisi kode aplikasi sesuai panduan.</p></div>
   </div>
 
-  <div class="step" data-id="8.2">
-    <h3><span class="sn">9.2</span>Isi environment variable</h3>
+  <div class="step" data-id="7.2">
+    <h3><span class="sn">7.2</span>Isi environment variable</h3>
     <div class="row"><span class="lab">Langkah</span><p>Sebelum deploy, buka <b>Settings</b> → <b>Environment Variables</b> di Vercel, lalu tambahkan:</p></div>
     <div class="code cmd"><pre>BETTER_AUTH_URL=https://[nama-folder].vercel.app
 BETTER_AUTH_SECRET=[kunci baru dari bun x @better-auth/cli secret]</pre></div>
     <div class="row"><span class="lab">Catatan</span><p>Jangan pakai kunci yang sama dengan <code class="i">.env.local</code> untuk produksi.</p></div>
   </div>
 
-  <div class="step" data-id="8.3">
-    <h3><span class="sn">9.3</span>Selesai dan dapat URL</h3>
+  <div class="step" data-id="7.3">
+    <h3><span class="sn">7.3</span>Selesai dan dapat URL</h3>
     <div class="row"><span class="lab">Berhasil kalau</span><p>Deploy selesai, dan URL <code class="i">https://[nama-folder].vercel.app</code> terbuka dan aplikasi jalan.</p></div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section id="s8">
+  <div class="sh"><span class="num">8</span><h2>Kumpulkan link</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 5 menit</span></div>
+  <p class="intro">Tahap terakhir: kumpulkan link repository dan link produk yang sudah kamu kerjakan supaya bisa dicatat panitia.</p>
+
+  <div class="step" data-id="8.1">
+    <h3><span class="sn">8.1</span>Buka formulir pengumpulan</h3>
+    <div class="row"><span class="lab">Langkah</span><p>Buka <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVYXBVonetlWmchdlWzkNQJnkueYMH9Y2q7zfDrlE3WyZksA/viewform?usp=header" target="_blank" rel="noopener">formulir pengumpulan</a>, lalu isi data diri dan kedua link di bawah.</p></div>
+  </div>
+
+  <div class="step" data-id="8.2">
+    <h3><span class="sn">8.2</span>Isi link repository</h3>
+    <div class="row"><span class="lab">Isi</span><p>Alamat repo GitHub kamu, contoh: <code class="i">https://github.com/[username]/[nama-folder]</code></p></div>
+  </div>
+
+  <div class="step" data-id="8.3">
+    <h3><span class="sn">8.3</span>Isi link produk</h3>
+    <div class="row"><span class="lab">Isi</span><p>URL hasil deploy dari Vercel, contoh: <code class="i">https://[nama-folder].vercel.app</code></p></div>
+  </div>
+
+  <div class="step" data-id="8.4">
+    <h3><span class="sn">8.4</span>Kirim</h3>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Formulir terkirim dan muncul halaman konfirmasi bahwa jawabanmu sudah tercatat.</p></div>
   </div>
 </section>
 </main>
@@ -539,7 +566,7 @@ BETTER_AUTH_SECRET=[kunci baru dari bun x @better-auth/cli secret]</pre></div>
     <div class="ringw"><svg viewBox="0 0 136 136" aria-hidden="true"><circle class="ring-bg" cx="68" cy="68" r="52"/><circle class="ring-fg" id="ringFg" cx="68" cy="68" r="52"/></svg><div class="ring-txt"><b id="ringPct">0%</b><span id="ringCnt">0 dari 0</span></div></div>
     <div class="seclist" id="seclist"></div>
   </div>
-  <div class="rail-card help"><b>FAQ?</b><p>Tempel pesan error apa adanya ke AI. Masih buntu, lihat bagian FAQ atau angkat tangan.</p></div>
+  <div class="rail-card help"><b>Buntu?</b><p>Tempel pesan error apa adanya ke AI. Masih buntu, lihat bagian Troubleshooting atau angkat tangan.</p></div>
 </aside>
 </div>
 
