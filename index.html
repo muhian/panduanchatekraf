@@ -435,7 +435,7 @@ git config --global --get credential.helper</pre></div>
   <div class="sh"><span class="num">4</span><h2>Autentikasi GitHub (OpenCode / Freebuff)</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 20 menit</span></div>
   <p class="intro">Supaya kamu bisa push (unggah kode) ke GitHub, komputermu harus "dikenali" oleh GitHub. Kita pakai <b>Git Credential Manager (GCM)</b> yang sudah terpasang bersama Git. Ia menyimpan loginmu sekali, lalu dipakai otomatis.</p>
 
-  <div class="note info"><strong>Awam? Pilih Opsi A (Device flow)</strong><p>Tidak perlu buat token manual. Cukup satu perintah, lalu buka browser dan masukkan kode. Paling mudah dan aman.</p></div>
+  <div class="note info"><strong>Awam? Pakai Device flow</strong><p>Tidak perlu buat token manual. Cukup satu perintah, lalu buka browser dan masukkan kode. Paling mudah dan aman.</p></div>
 
   <div class="step" data-id="4.1">
     <h3><span class="sn">4.1</span>Cek Git Credential Manager</h3>
@@ -444,7 +444,7 @@ git config --global --get credential.helper</pre></div>
   </div>
 
   <div class="step" data-id="4.2">
-    <h3><span class="sn">4.2</span>Opsi A — Device flow (disarankan)</h3>
+    <h3><span class="sn">4.2</span>Device flow (disarankan)</h3>
     <div class="row"><span class="lab">Perintah</span><p>Jalankan di PowerShell/Terminal:</p><div class="code cmd"><pre>git credential-manager github login --device</pre></div></div>
     <div class="row"><span class="lab">Yang terjadi</span><p>Terminal menampilkan kode (mis. <code class="i">ABCD-1234</code>) dan alamat <code class="i">https://github.com/login/device</code>. Buka alamat itu di browser, masuk ke akun GitHubmu, masukkan kode. Setelah "Authorized", terminal selesai dengan sendirinya.</p></div>
     <div class="row"><span class="lab">Kalau --device tidak jalan</span><p>Coba tambahkan <code class="i">--no-ui</code>: <code class="i">git credential-manager github login --device --no-ui</code>.</p></div>
@@ -454,7 +454,7 @@ git config --global --get credential.helper</pre></div>
   <div class="step" data-id="4.3">
     <h3><span class="sn">4.3</span>Cek akun tersimpan</h3>
     <div class="code cmd"><pre>git credential-manager github list</pre></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Daftar akun tersimpan muncul. Dengan Opsi A, itu nama akunmu (mis. <span class="ph" data-k="user">muhian</span>). Untuk memakai akun lain, logout lalu login lagi.</p></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Daftar akun tersimpan muncul. Dengan device flow, itu nama akunmu (mis. <span class="ph" data-k="user">muhian</span>). Untuk memakai akun lain, logout lalu login lagi.</p></div>
   </div>
 
   <div class="step" data-id="4.4">
@@ -499,7 +499,7 @@ git config --global --get credential.helper</pre></div>
         <tbody>
           <tr><td><code class="i">Repository not found</code></td><td>Repo salah, atau akun GitHub yang dipakai belum dibuat. Cek nama repo (huruf kecil, tanpa spasi) dan username.</td></tr>
           <tr><td><code class="i">Invalid username or token</code></td><td>Token kadang kadaluarsa atau salah akun. Logout: <code class="i">git credential-manager github logout &lt;username&gt;</code>, lalu login lagi.</td></tr>
-          <tr><td><code class="i">Authentication failed</code></td><td>Belum login, atau token tidak punya scope <b>repo</b>. Buat token baru dengan scope <b>repo</b>, lalu login via Opsi B.</td></tr>
+          <tr><td><code class="i">Authentication failed</code></td><td>Belum login, atau login tersimpan untuk akun lain. Jalankan login device flow (langkah 4.2), lalu coba push lagi.</td></tr>
           <tr><td><code class="i">Permission denied</code></td><td>Repo private dan kamu bukan anggota/team. Pakai akun yang punya akses, atau ubah repo ke Public.</td></tr>
           <tr><td><code class="i">remote: Repository not found</code></td><td>Alias push ke repo yang tidak kamu miliki. Pastikan <code class="i">git remote -v</code> benar.</td></tr>
         </tbody>
