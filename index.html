@@ -283,7 +283,7 @@ html{scroll-behavior:smooth}
   <a href="#s2"><b>2</b>Buat repo &amp; GitHub</a><span class="sep">&rarr;</span>
   <a href="#s3"><b>3</b>Install Git &amp; konfigurasi</a><span class="sep">&rarr;</span>
   <a href="#s4"><b>4</b>Autentikasi GitHub</a><span class="sep">&rarr;</span>
-  <a href="#s5"><b>5</b>Buka repo &amp; AI</a><span class="sep">&rarr;</span>
+  <a href="#s5"><b>5</b>Tahap prompting</a><span class="sep">&rarr;</span>
   <a href="#s6"><b>6</b>Troubleshooting</a><span class="sep">&rarr;</span>
   <a href="#s7"><b>7</b>Deploy ke Vercel</a><span class="sep">&rarr;</span>
   <a href="#s8"><b>8</b>Kumpulkan link</a>
@@ -307,7 +307,7 @@ html{scroll-behavior:smooth}
   <a href="#s2"><b>2</b><span>Buat repo dan GitHub</span></a>
   <a href="#s3"><b>3</b><span>Install Git dan konfigurasi</span></a>
   <a href="#s4"><b>4</b><span>Autentikasi GitHub</span></a>
-  <a href="#s5"><b>5</b><span>Buka repo &amp; AI</span></a>
+  <a href="#s5"><b>5</b><span>Tahap prompting</span></a>
   <a href="#s6"><b>6</b><span>Troubleshooting</span></a>
   <a href="#s7"><b>7</b><span>Deploy ke Vercel</span></a>
   <a href="#s8"><b>8</b><span>Kumpulkan link</span></a>
@@ -454,36 +454,98 @@ git config --global --get credential.helper</pre></div>
   <div class="step" data-id="4.3">
     <h3><span class="sn">4.3</span>Cek akun tersimpan</h3>
     <div class="code cmd"><pre>git credential-manager github list</pre></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Daftar akun tersimpan muncul. Dengan device flow, itu nama akunmu (mis. <span class="ph" data-k="user">muhian</span>). Untuk memakai akun lain, logout lalu login lagi.</p></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Daftar akun tersimpan muncul. Dengan device flow, itu nama akunmu (mis. <span class="ph" data-k="user">muhian</span>). Kalau akun tidak muncul, ulangi langkah 4.2.</p></div>
   </div>
 
-  <div class="step" data-id="4.4">
-    <h3><span class="sn">4.4</span>Ganti akun / logout</h3>
-    <div class="code cmd"><pre>git credential-manager github logout &lt;username&gt;</pre></div>
-    <div class="row"><span class="lab">Catatan</span><p>Logout membuang credential akun itu dari komputer ini. Setelah logout, akun tidak bisa dipakai sampai login lagi.</p></div>
-  </div>
 </section>
 
 <!-- 5 -->
 <section id="s5">
-  <div class="sh"><span class="num">5</span><h2>Buka repo dan minta AI siap pakai Git</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 10 menit</span></div>
-  <p class="intro">Dengan Git + credential helper terautentikasi (bab 4), OpenCode/Freebuff bisa mengurus git untukmu. Kamu tidak perlu ketik perintah git yang membingungkan, cukup beri AI satu prompt.</p>
+  <div class="sh"><span class="num">5</span><h2>Tahap prompting: bangun web dengan AI</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 90 menit</span></div>
+  <p class="intro">Inilah bagian intinya: kamu memberi instruksi, AI yang menulis kode. Polanya selalu sama — minta rencana dulu, satu prompt satu tujuan, lalu baca perubahan sebelum disetujui.</p>
+
+  <div class="note info"><strong>Tiga kebiasaan yang bikin aman</strong><p>1) Minta AI menulis dokumen rencana sebelum menulis kode. 2) Satu prompt untuk satu fitur, jangan digabung. 3) Setelah tiap iterasi, minta AI menunjukkan <code class="i">git diff</code> dan menjelaskan perubahannya sebelum commit.</p></div>
 
   <div class="step" data-id="5.1">
-    <h3><span class="sn">5.1</span>Beri AI daftar isi repo</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Buka repo https://github.com/muhian/tesekraf, lalu buat branch baru di dalamnya.</pre></div></div>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>AI selesai memproses repo, dan di browser kamu bisa melihat branch baru di repo GitHub kamu.</p></div>
+    <h3><span class="sn">5.1</span>Siapkan repo di laptop</h3>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Buka repo https://github.com/<span class="ph" data-k="user">[username]</span>/<span class="ph" data-k="folder">[nama-folder]</span>, lalu buat branch baru di dalamnya.</pre></div></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Folder proyek ada di laptopmu, dan branch baru terlihat di halaman repo GitHub.</p></div>
   </div>
 
   <div class="step" data-id="5.2">
-    <h3><span class="sn">5.2</span>Minta AI commit &amp; push</h3>
-    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>[Tulis atau minta AI menyiapkan perubahan, lalu] commit dan push ke branch tersebut.</pre></div></div>
-    <div class="row"><span class="lab">Catatan</span><p>AI memakai Git Credential Manager yang tersimpan di komputer kamu (dari bab 4), jadi tidak perlu password manual. Karena itu, tahap manual <code class="i">git add/commit/push</code> tidak wajib peserta.</p></div>
+    <h3><span class="sn">5.2</span>Minta AI menulis spesifikasi (SPEC.md)</h3>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Bertindaklah sebagai System Analyst dan Software Engineer. Buat SPEC.md untuk aplikasi "<span class="ph" data-k="usaha">[nama brand]</span>", katalog dan dashboard produk UMKM berbasis web untuk latihan 1 hari.
+Pengguna: calon pembeli dan pengelola toko pada satu perangkat.
+Fitur MVP: katalog 8 produk contoh, nama, kategori, harga Rupiah, stok, unggulan, pencarian, filter kategori, sorting, tombol pesan WhatsApp, dashboard demo CRUD, ringkasan total produk/stok/kategori, dan penyimpanan localStorage.
+Model produk: id, nama, kategori, harga (angka &gt;= 0), stok (integer &gt;= 0), deskripsi, imageUrl, unggulan.
+Batasan: jangan menyimpan API key, jangan menjalankan perintah berbahaya, data contoh nonpribadi, dan jangan memakai aset berhak cipta.
+Kriteria penerimaan harus dapat diperiksa secara manual.
+Output: tujuan, pengguna, daftar fitur, data model, risiko, out-of-scope, acceptance criteria, dan rencana implementasi per iterasi.
+Jangan menulis kode aplikasi dulu.</pre></div></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>File <code class="i">SPEC.md</code> muncul dan belum ada kode aplikasi yang ditulis.</p></div>
   </div>
 
   <div class="step" data-id="5.3">
-    <h3><span class="sn">5.3</span>Cek hasil di GitHub</h3>
-    <div class="row"><span class="lab">Berhasil kalau</span><p>Branch baru muncul di tab Branches repo, dan file/perubahan tercatat di commit tersebut.</p></div>
+    <h3><span class="sn">5.3</span>Rancang tampilan (UI-SPEC.md)</h3>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Berdasarkan SPEC.md, buat UI-SPEC.md: warna hangat khas UMKM, font sans-serif yang mudah dibaca, kontras aksesibel, layout mobile-first, navbar sticky, hero, grid produk responsif, kontrol pencarian/filter/sorting, tombol WhatsApp, empty state, dan dashboard demo. Buat wireframe teks untuk desktop dan mobile. Jangan menulis kode dulu.</pre></div></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p><code class="i">UI-SPEC.md</code> berisi warna, font, tata letak tiap halaman, dan wireframe teks.</p></div>
+  </div>
+
+  <div class="step" data-id="5.4">
+    <h3><span class="sn">5.4</span>Susun rencana iterasi (TASKS.md)</h3>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Baca SPEC.md dan UI-SPEC.md. Buat TASKS.md dengan milestone: (1) kerangka proyek, (2) landing dan 8 produk, (3) pencarian/filter/sorting, (4) integrasi WhatsApp, (5) dashboard CRUD, (6) localStorage dan import/export JSON, (7) unit test, (8) security review, (9) deployment. Setiap milestone memuat acceptance criteria, file yang disentuh, dan perintah uji. Jangan menulis kode dulu.</pre></div></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p><code class="i">TASKS.md</code> berisi daftar milestone yang bisa dicentang satu per satu.</p></div>
+  </div>
+
+  <div class="step" data-id="5.5">
+    <h3><span class="sn">5.5</span>Minta AI membuat kerangka proyek</h3>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Baca SPEC.md, UI-SPEC.md dan TASKS.md. Siapkan proyek Vite + JavaScript vanilla pada folder saat ini, tanpa subfolder tambahan. Pisahkan menjadi src/main.js, src/products.js, src/store.js, src/ui.js, src/style.css. Tambahkan .gitignore untuk node_modules, dist, .env, dan vite.config.js dengan base './'. Jangan menginstal paket tambahan selain yang dibutuhkan. Setelah selesai, jalankan npm install lalu npm run dev, dan beri tahu alamat localhost-nya.</pre></div></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p><code class="i">package.json</code>, <code class="i">index.html</code>, folder <code class="i">src/</code>, <code class="i">.gitignore</code>, dan <code class="i">vite.config.js</code> ada, lalu alamat localhost terbuka di browser.</p></div>
+  </div>
+
+  <div class="step" data-id="5.6">
+    <h3><span class="sn">5.6</span>Bangun katalog dan 8 produk</h3>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Baca SPEC.md dan UI-SPEC.md. Buat landing page dengan header sticky, hero, CTA ke katalog, 8 produk contoh (fiktif) di src/products.js, 4 kategori, harga Rupiah, stok, badge unggulan, dan kartu produk responsif. Gunakan placeholder emoji, bukan aset berhak cipta. Hanya ubah file UI dan data yang relevan.</pre></div></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>8 produk dan hero tampil rapi di desktop maupun layar ponsel.</p></div>
+  </div>
+
+  <div class="step" data-id="5.7">
+    <h3><span class="sn">5.7</span>Tambah pencarian, filter, dan sorting</h3>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Tambahkan pencarian produk case-insensitive pada nama dan deskripsi, filter kategori, serta sorting harga termurah/termahal dan nama A-Z. Semua filter dapat bekerja bersama. Jika hasil kosong, tampilkan empty state. Pisahkan fungsi murni filterProducts(products, { query, kategori, sort }) di src/store.js agar mudah diuji.</pre></div></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Pencarian dan filter kombinasi bekerja, dan empty state muncul saat hasil kosong.</p></div>
+  </div>
+
+  <div class="step" data-id="5.8">
+    <h3><span class="sn">5.8</span>Tambah tombol pesan WhatsApp</h3>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Tambahkan tombol "Pesan via WhatsApp" pada setiap kartu. Buat fungsi buildWhatsAppUrl(nomor, produk) di src/store.js yang memvalidasi nomor tujuan dalam format internasional dan memakai encodeURIComponent untuk pesan. Nomor pemilik disimpan sebagai konstanta WHATSAPP_NUMBER di src/products.js. Bila stok nol, nonaktifkan tombol pemesanan. Jangan menambahkan payment gateway.</pre></div></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Tombol membuka tautan wa.me dengan pesan yang sudah ter-encode, dan produk stok 0 tidak bisa dipesan.</p></div>
+  </div>
+
+  <div class="step" data-id="5.9">
+    <h3><span class="sn">5.9</span>Buat dashboard pengelolaan produk</h3>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Buat halaman dashboard demo yang menampilkan total produk, total stok, kategori aktif, tabel produk, dan form tambah/edit/hapus. Validasi nama wajib, harga angka &gt;= 0, stok integer &gt;= 0, kategori valid. Konfirmasi sebelum menghapus. Pastikan perubahan langsung tampak di katalog publik. Belum menambahkan login, password, atau sesi.</pre></div></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Tambah, edit, dan hapus produk mengubah daftar sekaligus kartu statistik.</p></div>
+    <div class="note warn"><strong>Dashboard lokal bukan sistem login</strong><p>Data hanya tersimpan di satu browser dan bisa diubah penggunanya. Jangan menyebut dashboard ini aman untuk banyak pengguna. Untuk produksi butuh backend, autentikasi, dan database.</p></div>
+  </div>
+
+  <div class="step" data-id="5.10">
+    <h3><span class="sn">5.10</span>Simpan data dengan localStorage</h3>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Simpan array produk ke localStorage dengan key "produk:v1". Saat dimuat, lakukan JSON.parse dalam try/catch dan validasi struktur serta tipe tiap field (nama string, kategori valid, harga &gt;= 0, stok integer &gt;= 0). Jika data rusak, tampilkan pemberitahuan dan pulihkan data contoh. Tambahkan export JSON, import JSON tervalidasi, dan reset demo. Jangan menghapus data lama bila impor gagal.</pre></div></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Produk tetap ada setelah halaman di-refresh, dan file impor yang tidak valid ditolak.</p></div>
+  </div>
+
+  <div class="step" data-id="5.11">
+    <h3><span class="sn">5.11</span>Uji dan audit keamanan</h3>
+    <div class="row"><span class="lab">Prompt uji</span><div class="code"><pre>Tambahkan Vitest dan minimal 20 unit test untuk filterProducts, validateProduct, buildWhatsAppUrl, parseProductsJSON, dan formatRupiah. Sertakan kasus batas harga/stok, kategori tidak valid, payload rusak, nomor telepon, serta kombinasi query+kategori+sorting. Jalankan npm test lalu laporkan hasil aktual. Jangan mengarang test yang tidak dijalankan.</pre></div></div>
+    <div class="row"><span class="lab">Prompt audit</span><div class="code"><pre>Audit proyek dengan fokus OWASP Top 10 untuk aplikasi statis: XSS, penggunaan innerHTML (pastikan semua data pengguna di-escape), penanganan URL, validasi impor JSON, dependency supply chain, kebocoran secret, dan konfigurasi publik. Bedakan temuan yang terbukti dari dugaan. Laporkan file/baris, tingkat risiko, dan rekomendasi.</pre></div></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Hasil <code class="i">npm test</code> ditampilkan apa adanya, dan laporan audit menyebut file serta tingkat risiko.</p></div>
+  </div>
+
+  <div class="step" data-id="5.12">
+    <h3><span class="sn">5.12</span>Commit dan push lewat AI</h3>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Tampilkan git diff, jelaskan perubahannya, lalu commit dan push ke branch yang tadi kamu buat. Tulis pesan commit yang jelas dan ringkas.</pre></div></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Branch di GitHub berisi commit terbaru, dan file proyek terlihat di sana.</p></div>
+    <div class="row"><span class="lab">Catatan</span><p>AI memakai Git Credential Manager dari bab 4, jadi tidak perlu ketik password atau perintah git manual.</p></div>
   </div>
 </section>
 
@@ -512,18 +574,18 @@ git config --global --get credential.helper</pre></div>
 <!-- 7 -->
 <section id="s7">
   <div class="sh"><span class="num">7</span><h2>Deploy ke Vercel</h2><span class="when"><svg class="ni" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Sekitar 20 menit</span></div>
-  <p class="intro">Panduan deploy dari repo GitHub ke Vercel untuk website UMKM ini. Situsnya statis, jadi cukup import lalu deploy.</p>
+  <p class="intro">Panduan deploy dari repo GitHub ke Vercel. Kalau proyekmu memakai Vite, Vercel mengisikan build command sendiri; kalau masih HTML statis, cukup import lalu deploy.</p>
 
   <div class="step" data-id="7.1">
     <h3><span class="sn">7.1</span>Deploy dari repo GitHub</h3>
     <div class="row"><span class="lab">Langkah</span><p>Buka <a href="https://vercel.com/new" target="_blank" rel="noopener">vercel.com/new</a>, klik <b>Import GitHub</b>, pilih repo <code class="i">muhian/tesekraf</code>, lalu klik <b>Deploy</b>.</p></div>
-    <div class="row"><span class="lab">Catatan</span><p>Pastikan branch <code class="i">main</code> sudah ada dan berisi kode aplikasi sesuai panduan.</p></div>
+    <div class="row"><span class="lab">Catatan</span><p>Pastikan branch yang mau dideploy sudah di-push ke GitHub. Kalau proyek memakai Vite, biarkan Framework Preset <b>Vite</b> dengan Build Command <code class="i">npm run build</code> dan Output Directory <code class="i">dist</code>.</p></div>
   </div>
 
   <div class="step" data-id="7.2">
     <h3><span class="sn">7.2</span>Selesai dan dapat URL</h3>
     <div class="row"><span class="lab">Berhasil kalau</span><p>Deploy selesai, dan URL <code class="i">https://[nama-folder].vercel.app</code> terbuka dan web tampil normal.</p></div>
-    <div class="row"><span class="lab">Catatan</span><p>Website ini statis (HTML, CSS, JS), jadi tidak perlu build command atau environment variable. Contoh hasil deploy: <a href="https://tesekraf.vercel.app/" target="_blank" rel="noopener">tesekraf.vercel.app</a>.</p></div>
+    <div class="row"><span class="lab">Catatan</span><p>Tidak perlu environment variable atau kunci rahasia. Kalau build gagal, cek log deploy dan pastikan <code class="i">npm run build</code> berhasil di laptop. Contoh hasil deploy: <a href="https://tesekraf.vercel.app/" target="_blank" rel="noopener">tesekraf.vercel.app</a>.</p></div>
   </div>
 </section>
 
