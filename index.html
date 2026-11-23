@@ -528,24 +528,34 @@ Jangan menulis kode aplikasi dulu.</pre></div></div>
     <h3><span class="sn">5.9</span>Buat dashboard pengelolaan produk</h3>
     <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Buat halaman dashboard demo yang menampilkan total produk, total stok, kategori aktif, tabel produk, dan form tambah/edit/hapus. Validasi nama wajib, harga angka &gt;= 0, stok integer &gt;= 0, kategori valid. Konfirmasi sebelum menghapus. Pastikan perubahan langsung tampak di katalog publik. Belum menambahkan login, password, atau sesi.</pre></div></div>
     <div class="row"><span class="lab">Berhasil kalau</span><p>Tambah, edit, dan hapus produk mengubah daftar sekaligus kartu statistik.</p></div>
-    <div class="note warn"><strong>Dashboard lokal bukan sistem login</strong><p>Data hanya tersimpan di satu browser dan bisa diubah penggunanya. Jangan menyebut dashboard ini aman untuk banyak pengguna. Untuk produksi butuh backend, autentikasi, dan database.</p></div>
   </div>
 
   <div class="step" data-id="5.10">
-    <h3><span class="sn">5.10</span>Simpan data dengan localStorage</h3>
+    <h3><span class="sn">5.10</span>Buat halaman admin dan landing page</h3>
+    <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Buat dua halaman untuk proyek ini.
+Halaman admin: login dan pengelolaan produk dengan gambar.
+Landing page: tampilkan bagian hero dan bagian produk.
+Stack: fullstack tanpa database (semua data disimpan di browser untuk tujuan edukasi).
+Target: deploy ke Vercel.</pre></div></div>
+    <div class="row"><span class="lab">Berhasil kalau</span><p>Halaman admin terbuka, login berfungsi, produk bisa ditambah/diubah/dihapus beserta gambarnya, dan landing page menampilkan hero serta daftar produk.</p></div>
+    <div class="note warn"><strong>Dashboard lokal bukan sistem login</strong><p>loginData hanya tersimpan di satu browser dan bisa diubah penggunanya. Jangan menyebut dashboard ini aman untuk banyak pengguna. Untuk produksi butuh backend, autentikasi, dan database.</p></div>
+  </div>
+
+  <div class="step" data-id="5.11">
+    <h3><span class="sn">5.11</span>Simpan data dengan localStorage</h3>
     <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Simpan array produk ke localStorage dengan key "produk:v1". Saat dimuat, lakukan JSON.parse dalam try/catch dan validasi struktur serta tipe tiap field (nama string, kategori valid, harga &gt;= 0, stok integer &gt;= 0). Jika data rusak, tampilkan pemberitahuan dan pulihkan data contoh. Tambahkan export JSON, import JSON tervalidasi, dan reset demo. Jangan menghapus data lama bila impor gagal.</pre></div></div>
     <div class="row"><span class="lab">Berhasil kalau</span><p>Produk tetap ada setelah halaman di-refresh, dan file impor yang tidak valid ditolak.</p></div>
   </div>
 
-  <div class="step" data-id="5.11">
-    <h3><span class="sn">5.11</span>Uji dan audit keamanan</h3>
+  <div class="step" data-id="5.12">
+    <h3><span class="sn">5.12</span>Uji dan audit keamanan</h3>
     <div class="row"><span class="lab">Prompt uji</span><div class="code"><pre>Tambahkan Vitest dan minimal 20 unit test untuk filterProducts, validateProduct, buildWhatsAppUrl, parseProductsJSON, dan formatRupiah. Sertakan kasus batas harga/stok, kategori tidak valid, payload rusak, nomor telepon, serta kombinasi query+kategori+sorting. Jalankan npm test lalu laporkan hasil aktual. Jangan mengarang test yang tidak dijalankan.</pre></div></div>
     <div class="row"><span class="lab">Prompt audit</span><div class="code"><pre>Audit proyek dengan fokus OWASP Top 10 untuk aplikasi statis: XSS, penggunaan innerHTML (pastikan semua data pengguna di-escape), penanganan URL, validasi impor JSON, dependency supply chain, kebocoran secret, dan konfigurasi publik. Bedakan temuan yang terbukti dari dugaan. Laporkan file/baris, tingkat risiko, dan rekomendasi.</pre></div></div>
     <div class="row"><span class="lab">Berhasil kalau</span><p>Hasil <code class="i">npm test</code> ditampilkan apa adanya, dan laporan audit menyebut file serta tingkat risiko.</p></div>
   </div>
 
-  <div class="step" data-id="5.12">
-    <h3><span class="sn">5.12</span>Commit dan push lewat AI</h3>
+  <div class="step" data-id="5.13">
+    <h3><span class="sn">5.13</span>Commit dan push lewat AI</h3>
     <div class="row"><span class="lab">Prompt</span><div class="code"><pre>Tampilkan git diff, jelaskan perubahannya, lalu commit dan push ke branch yang tadi kamu buat. Tulis pesan commit yang jelas dan ringkas.</pre></div></div>
     <div class="row"><span class="lab">Berhasil kalau</span><p>Branch di GitHub berisi commit terbaru, dan file proyek terlihat di sana.</p></div>
     <div class="row"><span class="lab">Catatan</span><p>AI memakai Git Credential Manager dari bab 4, jadi tidak perlu ketik password atau perintah git manual.</p></div>
